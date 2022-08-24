@@ -1,0 +1,22 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav__logo {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    font-weight: bold;
+    color: var(--yellow);
+}
+
+.nav__icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .2rem;
+}

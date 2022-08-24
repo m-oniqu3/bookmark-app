@@ -1,0 +1,55 @@
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0%;
+    background: rgba(202, 202, 202, 0.43);
+    backdrop-filter: blur(30px);
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+}
+
+.menu__header {
+    background: none;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu__logo {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    font-weight: bold;
+    color: var(--yellow);
+}
+
+
+.menu__icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .2rem;
+}
+
+.menu__list {
+    list-style: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.menu__list li {
+    margin: 1rem 0;
+}
+
+.menu__list a {
+    text-decoration: none;
+    color: inherit;
+    color: var(--primary);
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    font-weight: 400;
+}

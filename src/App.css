@@ -1,8 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Didact Gothic', sans-serif;
+}
+
+:root {
+  --yellow: #c2a410;
+  --light-grey: #f2f2f2;
+  --dark-blue: #3f3d56;
+  --light-yellow: #f9f6e7;
+  --light-blue: #c8e0eb;
+  --med-grey: rgba(0, 0, 0, 0.45);
+  --white: #fff;
 }
