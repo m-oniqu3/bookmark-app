@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:ital,wght@0,300;0,400;1,100;1,300;1,400&display=swap');
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Didact Gothic', sans-serif;
+  /* font-family: 'Lato', sans-serif */
+  /* font-weight: 300; */
 }
 
 :root {
@@ -16,4 +21,138 @@
   --light-blue: #c8e0eb;
   --med-grey: rgba(0, 0, 0, 0.45);
   --white: #fff;
+}
+
+.para {
+  line-height: 125%;
+  padding: 2rem 0;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* Modal */
+.close-icon {
+  position: absolute;
+  top: .5rem;
+  right: 1rem;
+  cursor: pointer;
+  color: var(--dark-blue);
+}
+
+/* Books */
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 1rem;
+  place-items: center;
+  /* margin: 0 auto; */
+  padding-bottom: 2rem;
+}
+
+/* Actions */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(230, 230, 230, 0.688);
+  padding-top: 1rem;
+  cursor: pointer;
+}
+
+.actions p {
+  background-color: var(--white);
+  padding: 10px 25px;
+  /* font-weight: 400; */
+  color: var(--dark-blue);
+  border-radius: 50px;
+  border: 1px solid var(--dark-blue);
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .2rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.actions p:hover {
+  background-color: var(--dark-blue);
+  color: var(--white);
+
+}
+
+.actions p span {
+  padding-right: 5px;
+}
+
+/* Button Actions */
+
+.button-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(230, 230, 230, 0.688);
+  padding-top: 1rem;
+  cursor: pointer;
+  padding: 1rem 0 0.5rem;
+}
+
+.button-actions button {
+  padding: 12px 25px;
+  font-weight: 600;
+  color: var(--dark-blue);
+  background-color: var(--white);
+  border-radius: 50px;
+  border: 1px solid var(--dark-blue);
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.button-actions button:hover {
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
+
+
+/* Media Queries */
+
+@media (min-width: 450px) {
+  .actions {
+    justify-content: space-evenly;
+  }
+
+  .actions p,
+  .actions button {
+    width: 45%;
+  }
+}
+
+
+@media (min-width: 600px) {
+  .button-actions {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .close-icon {
+    right: .5rem;
+  }
+
+}
+
+@media (min-width: 768px) {
+  .books-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    place-items: center;
+  }
+
+  .para {
+    font-size: 16px;
+  }
 }
