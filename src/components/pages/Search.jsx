@@ -55,7 +55,7 @@ const Search = () => {
   if (isLoading || isFetching) return <Loading />;
   return (
     <section className={styled.results}>
-      {isSuccess && <Container>{content}</Container>}
+      <Container>{content}</Container>
     </section>
   );
 };

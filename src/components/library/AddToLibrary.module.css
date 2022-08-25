@@ -1,0 +1,101 @@
+.library-container {
+    position: fixed;
+    bottom: 10px;
+    left: 0px;
+    width: 100%;
+}
+
+.library {
+    background-color: var(--white);
+    width: 95%;
+    max-width: 650px;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.library h2,
+.library span {
+    font-size: 1.2rem;
+    color: var(--dark-blue);
+    padding-bottom: 1rem;
+    max-width: 250px;
+    margin-inline: auto;
+}
+
+.library span {
+    color: var(--yellow);
+}
+
+.libraryCategory figure {
+    display: none;
+}
+
+.libraryCategory p {
+    padding: 10px 25px;
+    font-weight: 600;
+    color: var(--dark-blue);
+    border-radius: 50px;
+    border: 1px solid var(--dark-blue);
+    width: 70%;
+    margin: 1rem auto;
+    cursor: pointer;
+}
+
+.libraryCategory .exist {
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+
+.libraryCategory p:hover {
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+
+.close-icon {
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+    cursor: pointer;
+    color: var(--dark-blue);
+}
+
+@media (min-width: 600px) {
+    .library-container {
+        position: relative;
+    }
+
+    .libraryCategory {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        place-content: center;
+        place-items: center;
+        padding-top: 2rem;
+    }
+
+    .libraryCategory figure {
+        width: 90%;
+        display: grid;
+    }
+
+    .libraryCategory figure img {
+        width: 100%;
+    }
+
+    .libraryCategory div {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .libraryCategory p {
+        width: 90%;
+        margin: 0;
+    }
+
+    .close-icon {
+        right: 1.5rem;
+    }
+}

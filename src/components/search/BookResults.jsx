@@ -1,16 +1,8 @@
 import React from "react";
-// import Heading from "../../helpers/heading/Heading";
 import Books from "../books/Books";
 import LibraryActions from "../library/LibraryActions";
 
 const BookResults = ({ bookResults, searchQuery }) => {
-  //props for heading component
-  const text = (
-    <>
-      Showing results for <span> {searchQuery}</span>
-    </>
-  );
-
   //filter the results to return only books thar have images
   const results = bookResults
     ?.filter((book) => book.volumeInfo.imageLinks?.smallThumbnail !== undefined)
@@ -40,7 +32,9 @@ const BookResults = ({ bookResults, searchQuery }) => {
 
   return (
     <>
-      {/* <p> {text} </p> */}
+      <p style={{ textAlign: "center", paddingBottom: "1rem" }}>
+        Showing results for<span>{searchQuery}</span>
+      </p>
       <div className="books-grid">{results}</div>
     </>
   );

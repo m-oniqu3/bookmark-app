@@ -1,0 +1,28 @@
+.information-container {
+    position: fixed;
+    bottom: 1rem;
+    left: 0px;
+    width: 100%;
+}
+
+.information {
+    background-color: var(--white);
+    width: 95vw;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+
+/* Media Queries */
+
+@media (min-width:600px) {
+    .information-container {
+        position: relative;
+    }
+
+    .information {
+        min-width: 600px;
+    }
+}

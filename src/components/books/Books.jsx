@@ -3,6 +3,8 @@ import styled from "./Books.module.css";
 // import Information from "./Information";
 // import RemoveBook from "./RemoveBook";
 import { RiBookmarkFill } from "react-icons/ri";
+import Modal from "../helpers/modal/Modal";
+import Information from "./Information";
 
 // component to show each book it receives
 const Books = (props) => {
@@ -38,6 +40,17 @@ const Books = (props) => {
           </div>
         )}
       </section>
+
+      {/* modal to show the book information */}
+      {openModal && (
+        <Modal setOpenModal={setOpenModal} openModal={openModal}>
+          <Information
+            book={props.book}
+            actionsComponent={props.actionsComponent}
+            setOpenModal={setOpenModal}
+          />
+        </Modal>
+      )}
     </>
   );
 };
