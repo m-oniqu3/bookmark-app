@@ -1,10 +1,5 @@
 .empty-shelf {
     text-align: center;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-} */
     display: grid;
     place-content: center;
     place-items: center;
