@@ -1,12 +1,15 @@
+.nav__container {
+    border-bottom: 1px solid rgba(230, 230, 230, 0.688);
+}
+
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 10vh;
     gap: 1rem;
     cursor: pointer;
     position: relative;
-
+    height: 10vh;
 }
 
 .nav__logo {
@@ -30,6 +33,5 @@
     font-size: clamp(1.2rem, 2.5vw, 1.5rem);
     font-weight: bold;
     color: var(--yellow);
-
     display: none;
 }

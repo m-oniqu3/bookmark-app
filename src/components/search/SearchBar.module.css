@@ -28,5 +28,4 @@
 
 .search input::placeholder {
     color: var(--med-grey);
-    font-size: .9rem;
 }

@@ -15,7 +15,7 @@ const Pages = () => {
         <Route path="/" exact element={<Home />} />
         <Route path="/library" element={<Library />} />
         <Route path="/shelf" element={<Shelf />} />
-        <Route path="/search" element={<Search />} />
+        <Route path="/search/:query" element={<Search />} />
         <Route path="/explore" element={<Explore />} />
       </Routes>
     </>

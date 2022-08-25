@@ -29,15 +29,15 @@ const Navbar = () => {
     <div className={styled.nav__container}>
       <Container>
         <nav className={styled.nav}>
-          <p className={styled.nav__logo}>
+          <div className={styled.nav__logo}>
             <figure>
               <img src={bookmark} alt="Bookmark Logo" />
             </figure>
             <span>Bookmark</span>
-          </p>
+          </div>
           <SearchBar />
 
-          <RiMenuFill size={30} color="var(--yellow)" onClick={handleMenu} />
+          <RiMenuFill size={28} color="var(--yellow)" onClick={handleMenu} />
         </nav>
       </Container>
 
