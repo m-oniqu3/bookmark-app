@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "./EmptyShelf.module.css";
-// import Button from "../button/Button";
 import { useNavigate } from "react-router-dom";
+import Button from "../button/Button";
 
 const EmptyShelf = (props) => {
   const navigate = useNavigate();
@@ -15,8 +15,8 @@ const EmptyShelf = (props) => {
 
       <article>
         <h2> {props.heading}</h2>
-        <p>{props.message}</p>
-        <button onClick={handleClick}>{props.button}</button>
+        <p className="para">{props.message}</p>
+        <Button onClick={handleClick}>{props.button}</Button>
       </article>
     </section>
   );
