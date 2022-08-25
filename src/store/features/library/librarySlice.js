@@ -51,8 +51,18 @@ const librarySlice = createSlice({
         }
       }
     },
+    checkIfBookAlreadyExists: (state, action) => {
+      const data = action.payload;
+      const bookAlreadyInLibrary = state.library.find(
+        (book) => book.bookData.id === data.id
+      );
+      if (bookAlreadyInLibrary)
+        state.bookAlreadyInLibraryCategory = bookAlreadyInLibrary.category;
+      else state.bookAlreadyInLibraryCategory = "";
+    },
   },
 });
 
-export const { addBookToLibrary } = librarySlice.actions;
+export const { addBookToLibrary, checkIfBookAlreadyExists } =
+  librarySlice.actions;
 export default librarySlice.reducer;

@@ -1,19 +1,21 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import styled from "./AddToLibrary.module.css";
 import readingNook from "../../images/reading_svg.png";
-
-// import //   addBookToLibrary,
-// //   checkIfBookAlreadyExistsInCurrentUserLibrary,
-// "../../store/features/library/librarySlice";
 import { MdCancel } from "react-icons/md";
-import { useDispatch } from "react-redux";
-import { addBookToLibrary } from "../../store/features/library/librarySlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addBookToLibrary,
+  checkIfBookAlreadyExists,
+} from "../../store/features/library/librarySlice";
 
 const libraryCategories = ["To Be Read", "In Progress", "Completed", "DNF"];
 
 const AddToLibrary = (props) => {
   const book = props.selectedBook;
   const dispatch = useDispatch();
+  const { bookAlreadyInLibraryCategory } = useSelector(
+    (state) => state.bookStore
+  );
 
   //return empty string if the data is undefined
   const bookCategory = book.categories === undefined ? "" : book.categories;
@@ -34,22 +36,29 @@ const AddToLibrary = (props) => {
   // function to add the user and the selected book to the library
   const addToLibrary = (category) => {
     dispatch(addBookToLibrary({ bookData, category, timeAdded: Date.now() }));
-
-    //close the modal
     props.setOpenModal(false);
   };
 
   const handleClose = () => props.setOpenModal(false);
 
   // when a user want to add a book, check if the selected book is already in their library
-  //   useEffect(() => {
-  //     dispatch(
-  //       checkIfBookAlreadyExistsInCurrentUserLibrary({
-  //         bookData,
-  //         user: currentUser.email,
-  //       })
-  //     );
-  //   }, [bookData, currentUser, dispatch]);
+  useEffect(() => {
+    dispatch(checkIfBookAlreadyExists(bookData));
+  }, [bookData, dispatch]);
+
+  // if book already in library, highlight the category that it is in
+  const categories = libraryCategories.map((category) => {
+    const isCurrentCategory = bookAlreadyInLibraryCategory === category;
+    return (
+      <p
+        key={category}
+        className={isCurrentCategory ? styled.exist : ""}
+        onClick={() => addToLibrary(category)}
+      >
+        {category}
+      </p>
+    );
+  });
 
   return (
     <section className={styled["library-container"]}>
@@ -67,22 +76,7 @@ const AddToLibrary = (props) => {
             <figure>
               <img src={readingNook} alt="illustation of a bookshelf" />
             </figure>
-            <div>
-              {/* if the isCurrentCategory is the same as the current category then let the buttons reflect that and apply the correct styles */}
-              {libraryCategories.map((category) => {
-                // const isCurrentCategory =
-                //   bookAlreadyInLibraryCategory === category;
-                return (
-                  <p
-                    key={category}
-                    // className={isCurrentCategory ? styled.exist : ""}
-                    onClick={() => addToLibrary(category)}
-                  >
-                    {category}
-                  </p>
-                );
-              })}
-            </div>
+            <div>{categories}</div>
           </article>
         </article>
       </section>
