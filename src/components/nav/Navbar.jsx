@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styled from "./Navbar.module.css";
 import Container from "../helpers/container/Container";
-import { RiMenuFill } from "react-icons/ri";
+import { AiOutlineMenu } from "react-icons/ai";
 import bookmark from "../../images/bookmark.png";
 import MobileMenu from "./MobileMenu";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import SearchBar from "../search/SearchBar";
+import Button from "../button/Button";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -35,9 +36,32 @@ const Navbar = () => {
             </figure>
             <span>Bookmark</span>
           </div>
-          <SearchBar />
 
-          <RiMenuFill size={28} color="var(--yellow)" onClick={handleMenu} />
+          <ul className={styled.nav__list}>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/explore">Explore</Link>
+            </li>
+            <li>
+              <Link to="/library">Library</Link>
+            </li>
+            <li>
+              <Link to="/shelves">Shelf</Link>
+            </li>
+          </ul>
+
+          <div className={styled.nav__group}>
+            <SearchBar />
+            <Button>Sign in</Button>
+          </div>
+
+          <AiOutlineMenu
+            className={styled.nav__menu}
+            size={35}
+            onClick={handleMenu}
+          />
         </nav>
       </Container>
 

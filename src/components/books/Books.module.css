@@ -3,7 +3,6 @@
     width: fit-content;
 }
 
-
 .books figure {
     cursor: pointer;
     height: 9.8rem;
@@ -15,7 +14,7 @@
     width: 100%;
     box-shadow: rgba(95, 95, 96, 0.25) 0px 4px 8px -2px,
         rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-    object-fit: cover;
+    /* object-fit: cover; */
     border-radius: 5px;
 }
 
@@ -29,5 +28,12 @@
     position: absolute;
     top: -3px;
     left: 85px;
+}
 
+/* Media Queries */
+@media (min-width:600px) {
+    .books figure {
+        height: 12rem;
+        width: 8rem;
+    }
 }
