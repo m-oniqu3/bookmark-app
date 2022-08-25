@@ -22,3 +22,14 @@
   --med-grey: rgba(0, 0, 0, 0.45);
   --white: #fff;
 }
+
+/* Books */
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 1rem;
+  place-items: center;
+  /* margin: 0 auto; */
+  padding-bottom: 2rem;
+}

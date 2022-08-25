@@ -1,0 +1,25 @@
+.results {
+    padding: 1rem 0;
+}
+
+.results h1 {
+    background-color: var(--light-yellow);
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    display: block;
+    text-align: center;
+
+}
+
+.results h1,
+.results h1 span {
+    font-size: 1rem;
+}
+
+.results span {
+    padding-left: 5px;
+}

@@ -1,0 +1,33 @@
+.books {
+    position: relative;
+    width: fit-content;
+}
+
+
+.books figure {
+    cursor: pointer;
+    height: 9.8rem;
+    width: 6.5rem;
+}
+
+.books figure img {
+    height: 100%;
+    width: 100%;
+    box-shadow: rgba(95, 95, 96, 0.25) 0px 4px 8px -2px,
+        rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+
+.delete {
+    cursor: pointer;
+}
+
+.bookmarked,
+.delete {
+    position: absolute;
+    top: -3px;
+    left: 85px;
+
+}
