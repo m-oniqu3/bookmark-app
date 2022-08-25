@@ -8,8 +8,8 @@
 .summary figure {
     height: 150px;
     width: 100px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    box-shadow: rgba(90, 90, 90, 0.25) 0px 2px 5px -1px,
+        rgba(76, 76, 76, 0.3) 0px 1px 3px -1px;
 }
 
 .summary figure img {
@@ -35,7 +35,6 @@
 }
 
 .summary-author {
-    font-weight: 600;
     color: var(--dark-blue);
 }
 
@@ -60,17 +59,17 @@
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
-    color: var(--med-grey);
+    color: grey;
     font-style: normal;
 }
 
 
 @media (min-width: 600px) {
     .summary-title {
-        font-size: 1.7rem;
+        font-size: 1.5em;
     }
 
     .summary-snippet {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 }

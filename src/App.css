@@ -23,6 +23,28 @@
   --white: #fff;
 }
 
+/* Scrollbar for Chrome */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--yellow)
+}
+
+
+/* Scrollbar for FireFox */
+@supports (scrollbar-color: red blue) {
+  * {
+    scrollbar-color: var(--yellow) #f1f1f1;
+    scrollbar-width: thin;
+  }
+}
+
 .para {
   line-height: 125%;
   padding: 2rem 0;

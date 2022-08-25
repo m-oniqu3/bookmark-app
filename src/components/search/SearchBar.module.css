@@ -12,12 +12,11 @@
 }
 
 .search input {
-    border: 1px solid rgb(230, 230, 230);
-    background-color: var(--light-grey);
+    border: 1px solid var(--yellow);
+    /* background-color: var(--light-yellow); */
     border-radius: 50px;
     padding: 8px 15px;
-    padding-right: 40px;
-    color: var(--med-grey);
+    color: var(--yellow);
     width: 100%;
 }
 
@@ -26,6 +25,14 @@
 }
 
 .search input::placeholder {
-    color: var(--med-grey);
+    color: var(--yellow);
     font-size: .9rem;
+}
+
+/* Media Queries */
+
+@media (min-width: 768px) {
+    .search input {
+        padding: 10px 15px;
+    }
 }

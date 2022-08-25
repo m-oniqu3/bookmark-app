@@ -1,5 +1,6 @@
 .nav__container {
     border-bottom: 1px solid rgba(230, 230, 230, 0.688);
+    padding: 1rem 0;
 }
 
 .nav {
@@ -9,13 +10,14 @@
     gap: 1rem;
     cursor: pointer;
     position: relative;
-    height: 10vh;
+    /* height: 1rem; */
 }
 
 .nav__logo {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: .5rem;
 }
 
 .nav__logo figure {
@@ -34,4 +36,62 @@
     font-weight: bold;
     color: var(--yellow);
     display: none;
+}
+
+.nav__menu {
+    color: var(--yellow);
+}
+
+.nav__list,
+.nav__group button {
+    display: none;
+}
+
+.nav__group {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Media Queries */
+
+@media (min-width: 768px) {
+    .nav__logo span {
+        display: block;
+    }
+}
+
+@media (min-width: 950px) {
+    .nav__list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        list-style: none;
+    }
+
+
+    .nav__list a {
+        text-decoration: none;
+        color: inherit;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    .nav__menu {
+        display: none;
+    }
+
+    .nav__group {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: .5rem;
+        width: min(40%, 320px)
+    }
+
+    .nav__group button {
+        display: grid;
+    }
 }
