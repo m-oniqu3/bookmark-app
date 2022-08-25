@@ -6,11 +6,14 @@ import readingNook from "../../images/reading_svg.png";
 // //   checkIfBookAlreadyExistsInCurrentUserLibrary,
 // "../../store/features/library/librarySlice";
 import { MdCancel } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import { addBookToLibrary } from "../../store/features/library/librarySlice";
 
 const libraryCategories = ["To Be Read", "In Progress", "Completed", "DNF"];
 
 const AddToLibrary = (props) => {
   const book = props.selectedBook;
+  const dispatch = useDispatch();
 
   //return empty string if the data is undefined
   const bookCategory = book.categories === undefined ? "" : book.categories;
@@ -28,18 +31,13 @@ const AddToLibrary = (props) => {
     };
   }, [book, bookCategory, info]);
 
-  //function to add the user and the selected book to the library
-  //   const addToLibrary = (category) => {
-  //     dispatch(
-  //       addBookToLibrary({
-  //         selectedBook: { bookData, category, timeAdded: Date.now() },
-  //         user: currentUser.email,
-  //       })
-  //     );
+  // function to add the user and the selected book to the library
+  const addToLibrary = (category) => {
+    dispatch(addBookToLibrary({ bookData, category, timeAdded: Date.now() }));
 
-  //     //close the modal
-  //     props.setOpenModal(false);
-  //   };
+    //close the modal
+    props.setOpenModal(false);
+  };
 
   const handleClose = () => props.setOpenModal(false);
 
@@ -78,7 +76,7 @@ const AddToLibrary = (props) => {
                   <p
                     key={category}
                     // className={isCurrentCategory ? styled.exist : ""}
-                    // onClick={() => addToLibrary(category)}
+                    onClick={() => addToLibrary(category)}
                   >
                     {category}
                   </p>

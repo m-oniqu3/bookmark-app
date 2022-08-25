@@ -20,7 +20,7 @@ const LibraryActions = (props) => {
    * if user is signed in, open the add to library modal
    * if user is not signed in, open the login modal
    */
-  const handleLibrary = () => {};
+  const handleLibrary = () => setOpenModal((state) => !state);
 
   return (
     <>
