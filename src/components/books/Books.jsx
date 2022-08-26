@@ -36,7 +36,11 @@ const Books = (props) => {
 
         {props.showDeleteIcon && isHovering && (
           <div className={styled.delete} onClick={handleDelete}>
-            <RiBookmarkFill style={{ color: "var(--yellow)" }} size="35px" />
+            <RiBookmarkFill
+              className={styled.icon}
+              style={{ color: "var(--yellow)" }}
+              size="30px"
+            />
           </div>
         )}
       </section>

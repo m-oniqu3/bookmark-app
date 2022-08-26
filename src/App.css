@@ -61,7 +61,7 @@
 
 .books-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
   gap: 1rem;
   place-items: center;
   /* margin: 0 auto; */
@@ -169,10 +169,9 @@
 
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .books-grid {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
 
   .para {
