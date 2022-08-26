@@ -50,8 +50,55 @@ const shelfSlice = createSlice({
         }
       }
     },
+    removeShelf: (state, action) => {
+      const shelfToRemove = action.payload; //shelfname
+
+      //remove shelf from shelves array
+      state.shelf.shelves.splice(state.shelf.shelves.indexOf(shelfToRemove), 1);
+
+      //find all the books on the shelf that includes the shelfToRemove and remove it
+      state.shelf.booksOnShelves?.forEach((book) => {
+        book.shelf.forEach((item) => {
+          if (item.shelf === shelfToRemove)
+            book.shelf.splice(book.shelf.indexOf(item), 1);
+        });
+      });
+      state.shelfFeedback = {
+        title: "Information",
+        message: "Shelf removed",
+        type: "info",
+      };
+    },
+    renameShelf: (state, action) => {
+      const { oldShelfName, newShelfName } = action.payload;
+
+      //find the shelf in shelves array and rename it
+      const shelfIndex = state.shelf.shelves.indexOf(oldShelfName);
+      state.shelf.shelves[shelfIndex] = newShelfName;
+
+      //find all the books on the shelf that includes the shelf they are trying to rename
+      state.shelf.booksOnShelves?.forEach((book) => {
+        book.shelf.forEach((item) => {
+          if (item.shelf === oldShelfName) item.shelf = newShelfName;
+        });
+      });
+
+      state.shelfFeedback = {
+        title: "Information",
+        message: "Shelf renamed",
+        type: "info",
+      };
+    },
   },
 });
 
-export const { createShelf } = shelfSlice.actions;
+export const { createShelf, removeShelf, renameShelf } = shelfSlice.actions;
 export default shelfSlice.reducer;
+
+//    booksOnShelves
+//      ?.filter((book) => book.shelf.find((item) => item.shelf === data.shelf))
+//      ?.forEach((book) => {
+//        book.shelf.forEach((item) => {
+//          if (item.shelf === oldShelfName) item.shelf = newShelfName;
+//        });
+//      });

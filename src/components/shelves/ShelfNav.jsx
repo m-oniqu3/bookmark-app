@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 
 import Modal from "../helpers/modal/Modal";
 import CreateShelf from "./CreateShelf";
-// import ContextMenu from "./ContextMenu";
-// import ContextMenuAction from "./ContextMenuAction";
+import ContextMenu from "./ContextMenu";
+import ContextMenuAction from "./ContextMenuAction";
 
 const ShelfNav = ({ searchParams, setSearchParams }) => {
   //states and context
@@ -87,16 +87,16 @@ const ShelfNav = ({ searchParams, setSearchParams }) => {
       )}
 
       {/* show custom context menu */}
-      {/* {showContextMenu && (
+      {showContextMenu && (
         <ContextMenu
           setAction={setAction}
           positions={positions}
           setOpenMenuAction={setOpenMenuAction}
         />
-      )} */}
+      )}
 
       {/* show rename shelf modal */}
-      {/* {openMenuAction && (
+      {openMenuAction && (
         <Modal setOpenModal={setOpenMenuAction} openModal={openMenuAction}>
           <ContextMenuAction
             action={action}
@@ -106,7 +106,7 @@ const ShelfNav = ({ searchParams, setSearchParams }) => {
             searchParams={searchParams}
           />
         </Modal>
-      )} */}
+      )}
     </>
   );
 };

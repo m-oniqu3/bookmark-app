@@ -1,0 +1,50 @@
+.remove-container {
+    position: fixed;
+    bottom: 10px;
+    left: 0px;
+    width: 100%;
+}
+
+.remove {
+    background-color: var(--white);
+    width: 95%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.remove h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--dark-blue);
+}
+
+.remove p {
+
+    margin: .5rem auto 1.5rem auto;
+}
+
+.remove p span {
+    font-weight: 600;
+    color: var(--yellow);
+}
+
+/* Media Queries */
+
+@media (min-width:600px) {
+    .remove-container {
+        position: relative;
+    }
+
+    .remove {
+        min-width: 600px;
+    }
+
+    .remove p,
+    .remove span {
+        font-size: 1.2rem;
+    }
+}
