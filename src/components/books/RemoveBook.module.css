@@ -1,0 +1,52 @@
+.remove-book-container {
+    position: fixed;
+    bottom: 10px;
+    left: 0px;
+    width: 100%;
+}
+
+.remove-book {
+    background-color: var(--white);
+    width: 95%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.remove-book h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--dark-blue);
+    padding-bottom: 1rem;
+    font-family: "Inter", sans-serif;
+}
+
+.prompt,
+.prompt span {
+    font-size: 1rem;
+}
+
+.prompt {
+    width: 85%;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+}
+
+.name {
+    font-weight: 600;
+    color: var(--yellow);
+}
+
+
+@media (min-width: 600px) {
+    .remove-book-container {
+        position: relative;
+    }
+
+    .prompt {
+        padding-bottom: 1.5rem;
+    }
+
+}

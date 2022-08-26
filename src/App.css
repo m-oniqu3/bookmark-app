@@ -122,7 +122,8 @@
 
 .button-actions button {
   padding: 12px 25px;
-  font-weight: 600;
+  font-size: 1rem;
+  /* font-weight: 600; */
   color: var(--dark-blue);
   background-color: var(--white);
   border-radius: 50px;

@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import styled from "./Books.module.css";
-// import Information from "./Information";
-// import RemoveBook from "./RemoveBook";
 import { RiBookmarkFill } from "react-icons/ri";
 import Modal from "../helpers/modal/Modal";
 import Information from "./Information";
+import RemoveBook from "./RemoveBook";
 
 // component to show each book it receives
 const Books = (props) => {
@@ -53,6 +52,13 @@ const Books = (props) => {
             actionsComponent={props.actionsComponent}
             setOpenModal={setOpenModal}
           />
+        </Modal>
+      )}
+
+      {/* modal to show component when the icon is clicked  */}
+      {openRemoveModal && (
+        <Modal setOpenModal={setOpenRemoveModal} openModal={openRemoveModal}>
+          <RemoveBook book={props.book} setOpenIconModal={setOpenRemoveModal} />
         </Modal>
       )}
     </>

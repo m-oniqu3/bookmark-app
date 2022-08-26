@@ -60,9 +60,28 @@ const librarySlice = createSlice({
         state.bookAlreadyInLibraryCategory = bookAlreadyInLibrary.category;
       else state.bookAlreadyInLibraryCategory = "";
     },
+    removeBookFromLibrary: (state, action) => {
+      const data = action.payload; //bookid
+
+      // remove the book from the library
+      state.library = state.library.filter(
+        (book) => book.bookData.id !== data.bookId
+      );
+
+      state.feedback = {
+        title: "Information",
+        message: "Book has been removed from your library.",
+        type: "info",
+      };
+
+      return state;
+    },
   },
 });
 
-export const { addBookToLibrary, checkIfBookAlreadyExists } =
-  librarySlice.actions;
+export const {
+  addBookToLibrary,
+  checkIfBookAlreadyExists,
+  removeBookFromLibrary,
+} = librarySlice.actions;
 export default librarySlice.reducer;
