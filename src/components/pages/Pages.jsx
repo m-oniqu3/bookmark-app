@@ -8,6 +8,7 @@ import Search from "./Search";
 import Explore from "./Explore";
 import Shelves from "./Shelves";
 import NoMatch from "../helpers/routes/NoMatch";
+import BookDetails from "../books/BookDetails";
 
 const Pages = () => {
   return (
@@ -18,6 +19,7 @@ const Pages = () => {
         <Route path="/library" element={<Library />} />
         <Route path="/shelves" element={<Shelves />} />
         <Route path="/search/:query" element={<Search />} />
+        <Route path="/details/:bookId" element={<BookDetails />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>

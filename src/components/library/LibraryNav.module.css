@@ -1,5 +1,5 @@
 .library-navbar {
-    height: 10vh;
+    height: 8.5vh;
     border-bottom: 1px solid rgba(230, 230, 230, 0.688);
     margin-bottom: 2rem;
     display: flex;
@@ -41,8 +41,9 @@
     .library-navbar h1 {
         display: grid;
         color: var(--dark-blue);
-        font-weight: bold;
-        font-size: 1.1rem
+        font-weight: 700;
+        font-size: 1rem;
+        font-family: "Inter", sans-serif;
     }
 
     .library-links {

@@ -34,7 +34,7 @@
 
 .libraryCategory p {
     padding: 10px 25px;
-    font-weight: 600;
+    /* font-weight: 600; */
     color: var(--dark-blue);
     border-radius: 50px;
     border: 1px solid var(--dark-blue);

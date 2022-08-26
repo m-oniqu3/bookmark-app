@@ -15,7 +15,7 @@
     box-shadow: rgba(95, 95, 96, 0.25) 0px 4px 8px -2px,
         rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
     /* object-fit: cover; */
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 
@@ -27,13 +27,24 @@
 .delete {
     position: absolute;
     top: -3px;
-    left: 85px;
+    left: 75px;
 }
 
 /* Media Queries */
 @media (min-width:600px) {
     .books figure {
-        height: 12rem;
-        width: 8rem;
+        height: 11.5rem;
+        width: 7.5rem;
+    }
+
+    .bookmarked,
+    .delete {
+        top: -0.2rem;
+        left: 85px;
+    }
+
+    .icon {
+        width: 2.2rem;
+        height: 2.2rem;
     }
 }

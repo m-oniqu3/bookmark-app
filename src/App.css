@@ -122,7 +122,8 @@
 
 .button-actions button {
   padding: 12px 25px;
-  font-weight: 600;
+  font-size: 1rem;
+  /* font-weight: 600; */
   color: var(--dark-blue);
   background-color: var(--white);
   border-radius: 50px;
@@ -169,10 +170,9 @@
 
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .books-grid {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
 
   .para {

@@ -59,7 +59,7 @@ const Navbar = () => {
 
           <AiOutlineMenu
             className={styled.nav__menu}
-            size={35}
+            size={32}
             onClick={handleMenu}
           />
         </nav>
