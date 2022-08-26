@@ -36,7 +36,7 @@ const MobileMenu = (props) => {
             <Link to="/library">Library</Link>
           </li>
           <li>
-            <Link to="/shelves">Shelf</Link>
+            <Link to="/shelves">Shelves</Link>
           </li>
         </ul>
       </Container>
