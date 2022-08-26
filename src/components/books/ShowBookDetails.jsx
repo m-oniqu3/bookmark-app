@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Container from "../helpers/container/Container";
 import Modal from "../helpers/modal/Modal";
 import AddToLibrary from "../library/AddToLibrary";
-import Button from "../button/Button";
+import { IoAddCircleSharp } from "react-icons/io5";
 
 const ShowBookDetails = (props) => {
   const navigate = useNavigate();
@@ -66,9 +66,10 @@ const ShowBookDetails = (props) => {
             <img src={src} alt={title} />
             {isInLibrary && bookmark}
           </figure>
-          <button className={styled.btn} onClick={handleLibrary}>
-            Add to Library
-          </button>
+          <div className={styled.btn} onClick={handleLibrary}>
+            <p>Add to Library</p>
+            <IoAddCircleSharp size={"2.5rem"} color="var(--dark-blue)" />
+          </div>
         </div>
 
         <article className={styled.intro}>
@@ -79,9 +80,9 @@ const ShowBookDetails = (props) => {
             More by Author
           </p>
 
-          <button className={styled.btn} onClick={handleLibrary}>
-            Add to Library
-          </button>
+          <div className={styled.btn} onClick={handleLibrary}>
+            <IoAddCircleSharp size={"2.5rem"} color="var(--dark-blue)" />
+          </div>
         </article>
 
         <article className={styled.content}>
