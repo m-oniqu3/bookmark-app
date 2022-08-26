@@ -14,7 +14,7 @@ const LibraryActions = (props) => {
   //   const [openLoginModal, setOpenLoginModal] = useState(false);
 
   //navigate to the book details page for the specified book
-  const handleDetails = () => navigate(`/results/${props.book.id}`);
+  const handleDetails = () => navigate(`/details/${props.book.id}`);
 
   /**
    * if user is signed in, open the add to library modal
