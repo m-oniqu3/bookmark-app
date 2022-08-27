@@ -8,8 +8,14 @@ const BookResults = ({ bookResults, searchQuery }) => {
     ?.filter((book) => book.volumeInfo.imageLinks?.smallThumbnail !== undefined)
     .map((book) => {
       const { id, searchInfo } = book;
-      const { title, authors, publishedDate, categories, imageLinks } =
-        book.volumeInfo;
+      const {
+        title,
+        authors,
+        publishedDate,
+        categories,
+        imageLinks,
+        description,
+      } = book.volumeInfo;
 
       const bookData = {
         id,
@@ -19,6 +25,7 @@ const BookResults = ({ bookResults, searchQuery }) => {
         publishedDate,
         categories,
         imageLinks,
+        description,
       };
       return (
         <Books

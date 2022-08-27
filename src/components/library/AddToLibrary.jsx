@@ -16,7 +16,7 @@ const AddToLibrary = (props) => {
   const { bookAlreadyInLibraryCategory } = useSelector(
     (state) => state.bookStore
   );
-  console.log(book);
+
   //return empty string if the data is undefined
   const bookCategory = book?.categories === undefined ? "" : book.categories;
   const info = book?.searchInfo === undefined ? "" : book.searchInfo;
@@ -30,6 +30,7 @@ const AddToLibrary = (props) => {
       imageLinks: book.imageLinks,
       categories: bookCategory,
       searchInfo: info,
+      description: book.description,
     };
   }, [book, bookCategory, info]);
 

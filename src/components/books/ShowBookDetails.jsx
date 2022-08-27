@@ -15,8 +15,27 @@ const ShowBookDetails = (props) => {
   const descriptionRef = useRef("");
 
   const { selectedBook, isInLibrary } = props.details;
-  const { authors, description, subtitle, title, categories, imageLinks } =
-    selectedBook?.volumeInfo;
+  const {
+    authors,
+    description,
+    subtitle,
+    title,
+    categories,
+    imageLinks,
+    publishedDate,
+  } = selectedBook?.volumeInfo;
+  const { id, searchInfo } = selectedBook;
+
+  const bookData = {
+    id,
+    searchInfo,
+    title,
+    authors,
+    publishedDate,
+    categories,
+    imageLinks,
+    description,
+  };
 
   //if the selectedBook is not empty, update the innerHTML value with the given data since the description includes html tags
   useEffect(() => {
@@ -99,7 +118,7 @@ const ShowBookDetails = (props) => {
       {openLibraryModal && (
         <Modal openModal={openLibraryModal} setOpenModal={setOpenLibraryModal}>
           <AddToLibrary
-            selectedBook={selectedBook}
+            selectedBook={bookData}
             setOpenModal={setOpenLibraryModal}
           />
         </Modal>
