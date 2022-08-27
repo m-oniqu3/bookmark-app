@@ -1,6 +1,7 @@
 .nav__container {
     border-bottom: 1px solid rgba(230, 230, 230, 0.688);
     padding: 1rem 0;
+    /* position: fixed; */
 }
 
 .nav {
@@ -31,8 +32,8 @@
 }
 
 .nav__logo span {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    font-family: "Roboto", sans-serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.4rem);
     font-weight: bold;
     color: var(--yellow);
     display: none;
@@ -62,7 +63,7 @@
     }
 }
 
-@media (min-width: 950px) {
+@media (min-width: 800px) {
     .nav__list {
         display: flex;
         justify-content: space-between;
@@ -88,7 +89,7 @@
         justify-content: space-between;
         align-items: center;
         gap: .5rem;
-        width: min(40%, 320px)
+        width: min(40%, 250px)
     }
 
     .nav__group button {

@@ -32,6 +32,8 @@
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
 }
 
 .summary-author {
@@ -50,7 +52,7 @@
 }
 
 .summary-snippet {
-    font-weight: 400;
+    font-weight: 300;
     line-height: 125%;
     padding-top: 0.5rem;
     width: 90%;
@@ -64,7 +66,7 @@
 
 .summary-snippet * {
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 @media (min-width: 600px) {
