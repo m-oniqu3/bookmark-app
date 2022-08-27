@@ -15,19 +15,16 @@ const BookDetails = () => {
   const { bookId } = useParams();
   const { library } = useSelector((state) => state.bookStore);
 
+  //check if the book is in the library
   const isInLibrary = library?.find((book) => book.bookData.id === bookId);
 
-  const {
-    data: selectedBook,
-    isLoading,
-    isSuccess,
-    isError,
-    error,
-  } = useGetBookDetailsQuery(bookId);
+  // hook to get book details
+  const { data, isLoading, isSuccess, isError, error } =
+    useGetBookDetailsQuery(bookId);
 
-  const details = { selectedBook, isInLibrary };
+  const details = { selectedBook: data, isInLibrary };
 
-  if (selectedBook === [] && !isError) {
+  if (data === [] && !isError) {
     return (
       <Container className={styled.info}>
         <EmptyShelf
@@ -44,6 +41,7 @@ const BookDetails = () => {
   const errorHeading = error?.data?.error?.message
     ? `${error?.data?.error?.message}`
     : "There was an error when trying to fetch the data.";
+
   if (isError) {
     return (
       <Container className={styled.info}>

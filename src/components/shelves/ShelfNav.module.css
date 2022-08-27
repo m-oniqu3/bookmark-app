@@ -1,0 +1,77 @@
+.shelf-navbar {
+    height: 8.5vh;
+    border-bottom: 1px solid rgba(230, 230, 230, 0.688);
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 1.5rem;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.shelf-navbar h2 {
+    /* min-width: fit-content; */
+    padding: 5px 10px;
+    font-weight: 400;
+    border-radius: 50px;
+    border: 1px solid var(--dark-blue);
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+
+}
+
+.shelf-navbar h2:hover {
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+
+.shelf-links {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    gap: .5rem;
+}
+
+.shelf-links::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+    display: none;
+    /* Chrome */
+}
+
+
+.shelf-links p {
+    min-width: max-content;
+    padding: 5px 10px;
+    font-size: .9rem;
+    color: var(--med-grey);
+    border-radius: 50px;
+    border: 1px solid var(--med-grey);
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 0;
+
+}
+
+.shelf-links p:hover {
+    background-color: var(--med-grey);
+    color: var(--white);
+}
+
+.add {
+    cursor: pointer;
+}
+
+.active {
+    background-color: var(--dark-blue);
+    color: var(--white) !important;
+}
+
+.active:hover {
+    background-color: var(--white) !important;
+    color: var(--dark-blue) !important;
+    border: 1px solid var(--dark-blue) !important;
+}

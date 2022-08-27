@@ -6,17 +6,25 @@ const Summary = (props) => {
   const snippetRef = useRef();
 
   //  Destructured from the book object
-  const { searchInfo, title, authors, publishedDate, categories, imageLinks } =
-    props.book;
+  const {
+    searchInfo,
+    description,
+    title,
+    authors,
+    publishedDate,
+    categories,
+    imageLinks,
+  } = props.book;
 
   /** the textSnippet includes html tags so use useRef to include the text in the innerHTML
-   * if there is no snippet then show alternative text in else case
+   * if there is no snippet then show description or alternative text in else case
    */
   useEffect(() => {
-    if (searchInfo) {
+    if (searchInfo)
       snippetRef.current.innerHTML = ` ${searchInfo?.textSnippet}`;
-    } else snippetRef.current.innerHTML = "Visit Details & More";
-  }, [searchInfo]);
+    else if (description) snippetRef.current.innerHTML = ` ${description}`;
+    else snippetRef.current.innerHTML = "Visit Details & More";
+  }, [searchInfo, description]);
 
   const src = imageLinks
     ? `${imageLinks?.thumbnail}`

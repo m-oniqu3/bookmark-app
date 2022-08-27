@@ -1,0 +1,66 @@
+.create-shelf-container {
+    position: fixed;
+    bottom: 10px;
+    left: 0px;
+    width: 100%;
+}
+
+.create-shelf {
+    background-color: var(--white);
+    width: 95%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.create-shelf h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 1rem 0 .5rem;
+    color: var(--dark-blue);
+}
+
+.create-shelf p {
+    width: 85%;
+}
+
+.create-shelf-form {
+    width: 85%;
+}
+
+.create-shelf-form input {
+    border: none;
+    border-bottom: 1px solid var(--med-grey);
+    padding: 0.5rem;
+    text-align: center;
+    display: block;
+    margin: 1.5rem auto;
+    outline: none;
+    width: 90%;
+    font-size: 1rem;
+}
+
+
+.actions {
+    border: none;
+}
+
+/* Media Queries */
+
+@media (min-width:600px) {
+    .create-shelf-container {
+        position: relative;
+    }
+
+    .create-shelf {
+        width: 100%;
+    }
+
+
+}

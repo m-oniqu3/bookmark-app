@@ -18,18 +18,19 @@ const AddToLibrary = (props) => {
   );
 
   //return empty string if the data is undefined
-  const bookCategory = book.categories === undefined ? "" : book.categories;
-  const info = book.searchInfo === undefined ? "" : book.searchInfo;
+  const bookCategory = book?.categories === undefined ? "" : book.categories;
+  const info = book?.searchInfo === undefined ? "" : book.searchInfo;
 
   const bookData = useMemo(() => {
     return {
       id: book.id,
-      title: book.title,
+      title: book?.title,
       authors: book.authors,
       publishedDate: book.publishedDate,
       imageLinks: book.imageLinks,
       categories: bookCategory,
       searchInfo: info,
+      description: book.description,
     };
   }, [book, bookCategory, info]);
 
