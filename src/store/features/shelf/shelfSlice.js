@@ -89,10 +89,87 @@ const shelfSlice = createSlice({
         type: "info",
       };
     },
+    checkIfUserHasShelves: (state, action) => {
+      const { shelves } = state.shelf;
+      state.isShelfEmpty = shelves?.length === 0;
+    },
+    getShelvesForCurrentBook: (state, action) => {
+      const data = action.payload;
+
+      const shelvesForBook = state.shelf?.booksOnShelves?.find(
+        (book) => book.bookData.id === data.id
+      );
+      const shelves = shelvesForBook?.shelf?.map((item) => item.shelf);
+
+      state.currentBookShelves = shelves ?? [];
+    },
+    addToShelf: (state, action) => {
+      const { bookData, shelf, timeAdded } = action.payload; //{bookData, shelf, timeAdded}
+
+      //check if the book they are trying to add already exists
+      const bookAlreadyExists = state.shelf.booksOnShelves.find(
+        (book) => book.bookData.id === bookData.id
+      );
+
+      if (!bookAlreadyExists) {
+        state.shelf.booksOnShelves.push({
+          bookData,
+          shelf: [{ shelf, timeAdded }],
+        });
+        state.shelfFeedback = {
+          title: "Success",
+          message: "Book added to shelf",
+          type: "success",
+        };
+      } else if (bookAlreadyExists) {
+        //check if the shelf they are trying to add to already exists
+        const shelfExists = bookAlreadyExists.shelf.find(
+          (book) => book.shelf === shelf
+        );
+
+        if (shelfExists) {
+          //find the index of the shelf and remove it
+          const index = bookAlreadyExists.shelf.findIndex(
+            (book) => book.shelf === shelf
+          );
+          bookAlreadyExists.shelf.splice(index, 1);
+
+          //if the shelf is empty for the book, remove the book from the booksOnShelves array
+          if (bookAlreadyExists.shelf.length === 0) {
+            state.shelf.booksOnShelves.splice(
+              state.shelf.booksOnShelves.indexOf(bookAlreadyExists),
+              1
+            );
+          }
+
+          state.shelfFeedback = {
+            title: "Information",
+            message: "Book removed from shelf",
+            type: "info",
+          };
+        } else {
+          //if the book exists but the shelves are different, update the shelf
+          bookAlreadyExists.shelf.unshift({ shelf, timeAdded });
+
+          state.shelfFeedback = {
+            title: "Success",
+            message: "Book added to shelf",
+            type: "success",
+          };
+        }
+      }
+    },
   },
 });
 
-export const { createShelf, removeShelf, renameShelf } = shelfSlice.actions;
+export const {
+  createShelf,
+  removeShelf,
+  renameShelf,
+  checkIfUserHasShelves,
+  getShelvesForCurrentBook,
+  addToShelf,
+} = shelfSlice.actions;
 export default shelfSlice.reducer;
 
 //    booksOnShelves

@@ -31,7 +31,7 @@ const ShowBookDetails = (props) => {
   const handleLibrary = () => setOpenLibraryModal((state) => !state);
 
   const handleAuthor = () => {
-    if (authors) navigate(`/search?query=${authors[0]}`);
+    if (authors) navigate(`/search/${authors[0]}`);
   };
 
   //remove duplicate categories

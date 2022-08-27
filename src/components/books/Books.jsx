@@ -4,10 +4,13 @@ import { RiBookmarkFill } from "react-icons/ri";
 import Modal from "../helpers/modal/Modal";
 import Information from "./Information";
 import RemoveBook from "./RemoveBook";
+import { useSelector } from "react-redux";
 
 // component to show each book it receives
 const Books = (props) => {
   // state and props
+  const { library } = useSelector((state) => state.bookStore);
+  const { shelf } = useSelector((state) => state.bookShelf);
 
   const [openModal, setOpenModal] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
@@ -17,6 +20,19 @@ const Books = (props) => {
   // set the modal state
   const handleGetBookInfo = () => setOpenModal((state) => !state);
   const handleDelete = () => setOpenRemoveModal((state) => !state);
+
+  //check if this book is on the user's shelves and library
+  const isOnShelves = shelf.booksOnShelves?.find(
+    (book) => book.bookData.id === props.book.id
+  );
+
+  const isInLibrary = library.find(
+    (book) => book.bookData.id === props.book.id
+  );
+
+  // show bookmark if book in/on shelves or library
+  const showLibraryBookmark = props.showLibraryBookmark && isInLibrary;
+  const showShelfBookmark = props.showShelfBookmark && isOnShelves;
 
   const src = imageLinks
     ? imageLinks.smallThumbnail
@@ -40,6 +56,12 @@ const Books = (props) => {
               style={{ color: "var(--yellow)" }}
               size="30px"
             />
+          </div>
+        )}
+
+        {(showShelfBookmark || showLibraryBookmark) && (
+          <div className={styled.bookmarked}>
+            <RiBookmarkFill style={{ color: "var(--yellow)" }} size="35px" />
           </div>
         )}
       </section>

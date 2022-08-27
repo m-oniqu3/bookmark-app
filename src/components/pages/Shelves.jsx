@@ -3,6 +3,7 @@ import styled from "../shelves/Shelves.module.css";
 import { useSearchParams } from "react-router-dom";
 import Container from "../helpers/container/Container";
 import ShelfNav from "../shelves/ShelfNav";
+import BooksForShelves from "../shelves/BooksForShelves";
 
 const Shelves = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -13,6 +14,7 @@ const Shelves = () => {
           searchParams={searchParams}
           setSearchParams={setSearchParams}
         />
+        <BooksForShelves searchParams={searchParams} />
       </section>
     </Container>
   );

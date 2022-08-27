@@ -1,0 +1,99 @@
+.add-to-shelf-container {
+    position: fixed;
+    bottom: 10px;
+    left: 0px;
+    width: 100%;
+}
+
+.add-to-shelf {
+    background-color: var(--white);
+    width: 95%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.add-to-shelf h2,
+.add-to-shelf span {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--dark-blue);
+    max-width: 300px;
+}
+
+.add-to-shelf span {
+    color: var(--yellow);
+}
+
+.add-to-shelf figure {
+    width: 40%;
+    max-width: 200px;
+    margin: 1rem auto;
+}
+
+.add-to-shelf img {
+    width: 100%;
+}
+
+.allShelves {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0.875rem;
+    max-height: 120px;
+    overflow-y: scroll;
+    /* scrollbar-width: none; */
+    padding: 1rem 0;
+}
+
+/* .allShelves::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+} */
+
+.offShelf {
+    padding: 8px 20px;
+    color: var(--dark-blue);
+    border-radius: 50px;
+    border: 1px solid var(--dark-blue);
+    width: fit-content;
+    cursor: pointer;
+}
+
+.offShelf:hover {
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+
+
+.onShelf {
+    padding: 8px 20px;
+    border-radius: 50px;
+    border: 1px solid var(--dark-blue);
+    width: fit-content;
+    cursor: pointer;
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+
+/* Media Queries */
+
+@media (min-width:600px) {
+    .add-to-shelf-container {
+        position: relative;
+    }
+
+    .add-to-shelf {
+        /* min-width: 600px; */
+        width: 100%;
+    }
+}
