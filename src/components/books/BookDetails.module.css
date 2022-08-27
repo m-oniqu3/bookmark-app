@@ -3,6 +3,8 @@
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     padding: 2rem 0;
+    position: relative;
+    top: 10vh;
 }
 
 
@@ -46,6 +48,8 @@
 h1.title {
     font-size: clamp(1.2rem, 2.5vw, 1.5rem);
     color: var(--dark-blue);
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
 }
 
 .subtitle {
@@ -166,9 +170,11 @@ p.description {
     }
 
     .image .btn p {
-        font-size: 1.1rem;
-        font-weight: 600;
+        font-size: 1rem;
+
         color: var(--dark-blue);
+        font-family: "Roboto", sans-serif;
+        font-weight: bold;
     }
 
     .bookmarked {

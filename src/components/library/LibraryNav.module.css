@@ -5,6 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .library-navbar h1 {
@@ -43,7 +44,7 @@
         color: var(--dark-blue);
         font-weight: 700;
         font-size: 1rem;
-        font-family: "Inter", sans-serif;
+        font-family: "Roboto", sans-serif;
     }
 
     .library-links {

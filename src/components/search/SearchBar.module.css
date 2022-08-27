@@ -36,3 +36,9 @@
         padding: 10px 15px;
     }
 }
+
+@media (min-width: 800px) {
+    .search {
+        width: 60%;
+    }
+}

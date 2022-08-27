@@ -1,5 +1,8 @@
 .results {
     padding: 1rem 0;
+    position: relative;
+    top: 10vh;
+
 }
 
 .results h1 {
