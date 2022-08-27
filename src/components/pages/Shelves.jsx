@@ -7,16 +7,24 @@ import BooksForShelves from "../shelves/BooksForShelves";
 
 const Shelves = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const shelves = {
+    position: "relative",
+    top: "10vh",
+  };
+
   return (
-    <Container>
-      <section className={styled.shelves}>
-        <ShelfNav
-          searchParams={searchParams}
-          setSearchParams={setSearchParams}
-        />
-        <BooksForShelves searchParams={searchParams} />
-      </section>
-    </Container>
+    <div style={shelves}>
+      <Container>
+        <section className={styled.shelves}>
+          <ShelfNav
+            searchParams={searchParams}
+            setSearchParams={setSearchParams}
+          />
+          <BooksForShelves searchParams={searchParams} />
+        </section>
+      </Container>
+    </div>
   );
 };
 

@@ -3,6 +3,8 @@
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     padding: 2rem 0;
+    position: relative;
+    top: 10vh;
 }
 
 

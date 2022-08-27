@@ -7,17 +7,24 @@ import LibraryNav from "../library/LibraryNav";
 const Library = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
+  const library = {
+    position: "relative",
+    top: "10vh",
+  };
+
   return (
-    <Container>
-      <LibraryNav
-        searchParams={searchParams}
-        setSearchParams={setSearchParams}
-      />
-      <BooksForLibrary
-        searchParams={searchParams}
-        setSearchParams={setSearchParams}
-      />
-    </Container>
+    <div style={library}>
+      <Container>
+        <LibraryNav
+          searchParams={searchParams}
+          setSearchParams={setSearchParams}
+        />
+        <BooksForLibrary
+          searchParams={searchParams}
+          setSearchParams={setSearchParams}
+        />
+      </Container>
+    </div>
   );
 };
 
