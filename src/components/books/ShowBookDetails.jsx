@@ -1,17 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "./BookDetails.module.css";
 import { RiBookmarkFill } from "react-icons/ri";
-
 import { useNavigate } from "react-router-dom";
 import Container from "../helpers/container/Container";
 import Modal from "../helpers/modal/Modal";
 import AddToLibrary from "../library/AddToLibrary";
 import { IoAddCircleSharp } from "react-icons/io5";
+import Login from "../user/Login";
+import { useSelector } from "react-redux";
 
 const ShowBookDetails = (props) => {
+  const { isSignedIn } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const [openLibraryModal, setOpenLibraryModal] = useState(false);
-  //   const [openLoginModal, setOpenLoginModal] = useState(false);
+  const [openLoginModal, setOpenLoginModal] = useState(false);
   const descriptionRef = useRef("");
 
   const { selectedBook, isInLibrary } = props.details;
@@ -47,7 +49,10 @@ const ShowBookDetails = (props) => {
   /** if user is signed in, open the add to library modal
    * if user is not signed in, open the login modal
    */
-  const handleLibrary = () => setOpenLibraryModal((state) => !state);
+  const handleLibrary = () => {
+    if (isSignedIn) setOpenLibraryModal((state) => !state);
+    else setOpenLoginModal((state) => !state);
+  };
 
   const handleAuthor = () => {
     if (authors) navigate(`/search/${authors[0]}`);
@@ -124,11 +129,11 @@ const ShowBookDetails = (props) => {
         </Modal>
       )}
 
-      {/* {openLoginModal && (
+      {openLoginModal && (
         <Modal openModal={openLoginModal} setOpenModal={setOpenLoginModal}>
           <Login setOpenModal={setOpenLoginModal} />
         </Modal>
-      )} */}
+      )}
     </>
   );
 };

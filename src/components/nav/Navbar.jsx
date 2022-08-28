@@ -9,8 +9,10 @@ import SearchBar from "../search/SearchBar";
 import Button from "../button/Button";
 import Modal from "../helpers/modal/Modal";
 import Login from "../user/Login";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const { isSignedIn } = useSelector((state) => state.auth);
   const [openMenu, setOpenMenu] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const { pathname } = useLocation();
@@ -49,17 +51,26 @@ const Navbar = () => {
               <li>
                 <Link to="/explore">Explore</Link>
               </li>
-              <li>
-                <Link to="/library">Library</Link>
-              </li>
-              <li>
-                <Link to="/shelves">Shelves</Link>
-              </li>
+
+              {isSignedIn && (
+                <li>
+                  <Link to="/library">Library</Link>
+                </li>
+              )}
+              {isSignedIn && (
+                <li>
+                  <Link to="/shelves">Shelves</Link>
+                </li>
+              )}
             </ul>
 
             <div className={styled.nav__group}>
               <SearchBar />
-              <Button onClick={handleLogin}>Sign in</Button>
+              {!isSignedIn ? (
+                <Button onClick={handleLogin}>Sign in</Button>
+              ) : (
+                <Button>Logout</Button>
+              )}
             </div>
 
             <AiOutlineMenu
