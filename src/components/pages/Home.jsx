@@ -3,7 +3,16 @@ import Container from "../helpers/container/Container";
 
 const Home = () => {
   //top 10vh
-  return <Container>Home</Container>;
+  const home = {
+    position: "relative",
+    top: "10vh",
+  };
+
+  return (
+    <div style={home}>
+      <Container>Home</Container>;
+    </div>
+  );
 };
 
 export default Home;
