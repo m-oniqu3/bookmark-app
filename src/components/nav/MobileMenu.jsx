@@ -45,6 +45,7 @@ const MobileMenu = (props) => {
               <Link to="/shelves">Shelves</Link>
             </li>
           )}
+          {!isSignedIn ? <p>Sign In</p> : <p>Sign Out</p>}
         </ul>
       </Container>
     </div>,

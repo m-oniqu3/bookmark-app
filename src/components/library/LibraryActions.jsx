@@ -46,7 +46,10 @@ const LibraryActions = (props) => {
        */}
       {openModal && (
         <Modal setOpenModal={setOpenModal} openModal={openModal}>
-          <AddToLibrary selectedBook={props.book} setOpenModal={setOpenModal} />
+          <AddToLibrary
+            selectedBook={props.book}
+            setOpenLibraryModal={setOpenModal}
+          />
         </Modal>
       )}
 
