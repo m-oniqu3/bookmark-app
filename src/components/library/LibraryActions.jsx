@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { RiAddCircleLine } from "react-icons/ri";
 import { MdInfoOutline } from "react-icons/md";
-
 import AddToLibrary from "./AddToLibrary";
 import Modal from "../helpers/modal/Modal";
-// import Login from "../login/Login";
+import Login from "../user/Login";
+import { useSelector } from "react-redux";
 
 const LibraryActions = (props) => {
+  const { isSignedIn } = useSelector((state) => state.auth);
   const navigate = useNavigate();
-
   const [openModal, setOpenModal] = useState(false);
-  //   const [openLoginModal, setOpenLoginModal] = useState(false);
+  const [openLoginModal, setOpenLoginModal] = useState(false);
 
   //navigate to the book details page for the specified book
   const handleDetails = () => navigate(`/details/${props.book.id}`);
@@ -20,7 +20,10 @@ const LibraryActions = (props) => {
    * if user is signed in, open the add to library modal
    * if user is not signed in, open the login modal
    */
-  const handleLibrary = () => setOpenModal((state) => !state);
+  const handleLibrary = () => {
+    if (isSignedIn) setOpenModal((state) => !state);
+    else setOpenLoginModal((state) => !state);
+  };
 
   return (
     <>
@@ -43,15 +46,18 @@ const LibraryActions = (props) => {
        */}
       {openModal && (
         <Modal setOpenModal={setOpenModal} openModal={openModal}>
-          <AddToLibrary selectedBook={props.book} setOpenModal={setOpenModal} />
+          <AddToLibrary
+            selectedBook={props.book}
+            setOpenLibraryModal={setOpenModal}
+          />
         </Modal>
       )}
 
-      {/* {openLoginModal && (
+      {openLoginModal && (
         <Modal setOpenModal={setOpenLoginModal} openModal={openLoginModal}>
           <Login setOpenModal={setOpenLoginModal} />
         </Modal>
-      )} */}
+      )}
     </>
   );
 };

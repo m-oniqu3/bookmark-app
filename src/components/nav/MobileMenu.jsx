@@ -5,9 +5,12 @@ import Container from "../helpers/container/Container";
 import { BiSearch } from "react-icons/bi";
 import { VscClose } from "react-icons/vsc";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const MobileMenu = (props) => {
+  const { isSignedIn } = useSelector((state) => state.auth);
   const navigate = useNavigate();
+
   //close menu
   const handleClose = () => props.setOpenMenu((state) => !state);
 
@@ -32,12 +35,17 @@ const MobileMenu = (props) => {
           <li>
             <Link to="/explore">Explore</Link>
           </li>
-          <li>
-            <Link to="/library">Library</Link>
-          </li>
-          <li>
-            <Link to="/shelves">Shelves</Link>
-          </li>
+          {isSignedIn && (
+            <li>
+              <Link to="/library">Library</Link>
+            </li>
+          )}
+          {isSignedIn && (
+            <li>
+              <Link to="/shelves">Shelves</Link>
+            </li>
+          )}
+          {!isSignedIn ? <p>Sign In</p> : <p>Sign Out</p>}
         </ul>
       </Container>
     </div>,

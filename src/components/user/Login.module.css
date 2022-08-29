@@ -1,0 +1,63 @@
+.login {
+    background-color: var(--white);
+    text-align: center;
+    padding: 2rem 0;
+    border-radius: 10px;
+    max-width: 600px;
+    border: 15px solid var(--light-grey);
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+}
+
+.wrap {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.login h1 {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    color: var(--yellow);
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+}
+
+.login p {
+    padding: 1rem 0;
+    line-height: 135%;
+    max-width: 450px;
+}
+
+.shelf {
+    width: 70%;
+    max-width: 250px;
+    margin: 1rem auto;
+
+}
+
+.shelf img {
+    width: 100%;
+}
+
+.sign-in {
+    font-size: 1rem;
+    padding: 8px 25px;
+    margin: 1.5rem auto 0;
+    /* max-width: 30px; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    border: 1px solid var(--dark-blue);
+    border-radius: 50px;
+    cursor: pointer;
+
+    background-color: var(--white);
+    color: var(--dark-blue);
+    transition: all 0.3s ease-in-out;
+}
+
+.sign-in:hover {
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
