@@ -15,6 +15,7 @@ import { useSelector } from "react-redux";
 
 const Pages = () => {
   const { feedback } = useSelector((state) => state.bookStore);
+  const { shelfFeedback } = useSelector((state) => state.bookShelf);
 
   useEffect(() => {
     if (feedback.message !== "") {
@@ -39,6 +40,30 @@ const Pages = () => {
       });
     }
   }, [feedback]);
+
+  useEffect(() => {
+    if (shelfFeedback.message !== "") {
+      Store.addNotification({
+        content: (
+          <Notification
+            type={shelfFeedback.type}
+            message={shelfFeedback.message}
+            title={shelfFeedback.title}
+          />
+        ),
+
+        insert: "top",
+        container: "top-left",
+        animationIn: ["animate__animated", "animate__fadeIn"],
+        animationOut: ["animate__animated", "animate__fadeOut"],
+
+        dismiss: {
+          duration: 1200,
+          pauseOnHover: true,
+        },
+      });
+    }
+  }, [shelfFeedback]);
   return (
     <>
       <Navbar />

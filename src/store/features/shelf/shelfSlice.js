@@ -90,8 +90,14 @@ const shelfSlice = createSlice({
       };
     },
     checkIfUserHasShelves: (state, action) => {
-      const { shelves } = state.shelf;
-      state.isShelfEmpty = shelves?.length === 0;
+      //check if user has shelves
+      if (
+        state.shelf?.shelves?.length === 0 ||
+        state.shelf?.shelves === [] ||
+        state.shelf?.shelves === undefined
+      )
+        state.isShelfEmpty = true;
+      else state.isShelfEmpty = false;
     },
     getShelvesForCurrentBook: (state, action) => {
       const data = action.payload;

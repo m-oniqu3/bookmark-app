@@ -1,5 +1,5 @@
 .menu {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0%;
     background: rgba(202, 202, 202, 0.43);
@@ -12,6 +12,7 @@
 
 .menu__header {
     background: none;
+
     height: 10vh;
     display: flex;
     justify-content: space-between;
