@@ -32,9 +32,10 @@ const shelfSlice = createSlice({
           (record) => record === data
         );
         if (!shelfAlreadyExists) {
+          const previousBooksOnShelves = state.shelf?.booksOnShelves || [];
           state.shelf = {
             shelves: [data, ...(state.shelf.shelves ?? "")],
-            booksOnShelves: [],
+            booksOnShelves: [...previousBooksOnShelves],
           };
           state.shelfFeedback = {
             title: "Success",
@@ -90,8 +91,14 @@ const shelfSlice = createSlice({
       };
     },
     checkIfUserHasShelves: (state, action) => {
-      const { shelves } = state.shelf;
-      state.isShelfEmpty = shelves?.length === 0;
+      //check if user has shelves
+      if (
+        state.shelf?.shelves?.length === 0 ||
+        state.shelf?.shelves === [] ||
+        state.shelf?.shelves === undefined
+      )
+        state.isShelfEmpty = true;
+      else state.isShelfEmpty = false;
     },
     getShelvesForCurrentBook: (state, action) => {
       const data = action.payload;
@@ -159,6 +166,20 @@ const shelfSlice = createSlice({
         }
       }
     },
+
+    removeBookFromAllShelves: (state, action) => {
+      const bookId = action.payload; //bookId
+
+      //remove the book from all shelves
+      state.shelf?.booksOnShelves?.forEach((book) => {
+        if (book.bookData.id === bookId) {
+          state.shelf.booksOnShelves.splice(
+            state.shelf.booksOnShelves.indexOf(book),
+            1
+          );
+        }
+      });
+    },
   },
 });
 
@@ -169,13 +190,6 @@ export const {
   checkIfUserHasShelves,
   getShelvesForCurrentBook,
   addToShelf,
+  removeBookFromAllShelves,
 } = shelfSlice.actions;
 export default shelfSlice.reducer;
-
-//    booksOnShelves
-//      ?.filter((book) => book.shelf.find((item) => item.shelf === data.shelf))
-//      ?.forEach((book) => {
-//        book.shelf.forEach((item) => {
-//          if (item.shelf === oldShelfName) item.shelf = newShelfName;
-//        });
-//      });

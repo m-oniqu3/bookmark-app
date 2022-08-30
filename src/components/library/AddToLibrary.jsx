@@ -37,11 +37,11 @@ const AddToLibrary = (props) => {
   // function to add the user and the selected book to the library
   const addToLibrary = (category) => {
     dispatch(addBookToLibrary({ bookData, category, timeAdded: Date.now() }));
-    props.setOpenLibraryModal(false);
-    props.closeModal(false);
+    props.setOpenModal(false);
+    if (props.closeModal) props.closeModal(false);
   };
 
-  const handleClose = () => props.setOpenLibraryModal(false);
+  const handleClose = () => props.setOpenModal(false);
 
   // when a user want to add a book, check if the selected book is already in their library
   useEffect(() => {

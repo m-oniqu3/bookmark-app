@@ -16,15 +16,16 @@
 }
 
 .remove h2 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 1rem;
     color: var(--dark-blue);
+    font-family: "Roboto", sans-serif;
 }
 
 .remove p {
-
     margin: .5rem auto 1.5rem auto;
+    width: min(100%, 450px);
 }
 
 .remove p span {
@@ -43,8 +44,5 @@
         min-width: 600px;
     }
 
-    .remove p,
-    .remove span {
-        font-size: 1.2rem;
-    }
+
 }

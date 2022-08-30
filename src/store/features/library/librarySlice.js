@@ -37,7 +37,6 @@ const librarySlice = createSlice({
             message: "This book is already in your library in this category",
             type: "warning",
           };
-          alert(state.feedback.message);
         } else {
           //if the categories are different, update the category and timeAdded of the bookAlreadyInLibrary object
 
@@ -45,7 +44,7 @@ const librarySlice = createSlice({
           bookAlreadyInLibrary.timeAdded = Date.now();
           state.feedback = {
             title: "Information",
-            message: "Book has been added to your library.",
+            message: "Book moved to new category",
             type: "info",
           };
         }
@@ -61,16 +60,16 @@ const librarySlice = createSlice({
       else state.bookAlreadyInLibraryCategory = "";
     },
     removeBookFromLibrary: (state, action) => {
-      const data = action.payload; //bookid
+      const bookId = action.payload; //bookid
 
       // remove the book from the library
       state.library = state.library.filter(
-        (book) => book.bookData.id !== data.bookId
+        (book) => book.bookData.id !== bookId
       );
 
       state.feedback = {
         title: "Information",
-        message: "Book has been removed from your library.",
+        message: "Book removed from library.",
         type: "info",
       };
 

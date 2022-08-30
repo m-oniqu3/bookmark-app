@@ -1,24 +1,18 @@
 import React from "react";
 import styled from "./RemoveBook.module.css";
 import { useDispatch } from "react-redux";
-
 import { TiDelete } from "react-icons/ti";
 import { removeBookFromLibrary } from "../../store/features/library/librarySlice";
-// import { removeBookFromAllShelves } from "../../store/features/shelf/shelfSlice";
+import { removeBookFromAllShelves } from "../../store/features/shelf/shelfSlice";
 
 const RemoveBook = ({ book, setOpenIconModal }) => {
   const dispatch = useDispatch();
 
   // function remove the book from the library
   const removeHandler = async () => {
-    const data = {
-      bookId: book.id,
-      bookTitle: book.title,
-    };
-
     await Promise.all([
-      dispatch(removeBookFromLibrary(data)),
-      //   dispatch(removeBookFromAllShelves(data)),
+      dispatch(removeBookFromLibrary(book.id)),
+      dispatch(removeBookFromAllShelves(book.id)),
     ]);
     await setOpenIconModal(false);
   };

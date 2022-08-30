@@ -8,8 +8,8 @@ const ContextMenu = (props) => {
   };
 
   const menuStyle = {
-    top: props.positions.top + 20 + "px",
-    left: props.positions.left - 40 + "px",
+    top: props.positions.top - 30,
+    left: props.positions.left,
   };
 
   return (
