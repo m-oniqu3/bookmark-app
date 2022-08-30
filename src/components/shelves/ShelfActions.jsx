@@ -12,16 +12,12 @@ const ShelfActions = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isShelfEmpty } = useSelector((state) => state.bookShelf);
-
   const [openModal, setOpenModal] = useState(false);
   const [openShelfModal, setOpenShelfModal] = useState(false);
 
   const addToShelfHandler = () => {
-    if (isShelfEmpty) {
-      setOpenModal((state) => !state);
-    } else if (!isShelfEmpty) {
-      setOpenShelfModal((state) => !state);
-    }
+    if (isShelfEmpty) setOpenModal((state) => !state);
+    else if (!isShelfEmpty) setOpenShelfModal((state) => !state);
   };
 
   //check if user has shelves

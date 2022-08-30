@@ -1,6 +1,5 @@
 import React from "react";
 import Books from "../books/Books";
-import LibraryActions from "../library/LibraryActions";
 
 const BookResults = ({ bookResults, searchQuery }) => {
   //filter the results to return only books thar have images
@@ -31,7 +30,7 @@ const BookResults = ({ bookResults, searchQuery }) => {
         <Books
           key={book.id}
           book={bookData}
-          actionsComponent={<LibraryActions book={bookData} />}
+          component="library"
           showLibraryBookmark={true}
         />
       );

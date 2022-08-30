@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import Books from "../components/books/Books";
-import LibraryActions from "../components/library/LibraryActions";
 
 const useGetAllBooks = () => {
   // retrieve the library from the store
@@ -13,7 +12,7 @@ const useGetAllBooks = () => {
         key={record.bookData.id}
         book={record.bookData}
         showDeleteIcon={true}
-        actionsComponent={<LibraryActions book={record.bookData} />}
+        component="library"
       />
     );
   });

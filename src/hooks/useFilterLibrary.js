@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import Books from "../components/books/Books";
-import LibraryActions from "../components/library/LibraryActions";
 
 //custom hook to filter the current user's library based on the category recieved
 const useFilterLibrary = (category) => {
@@ -21,7 +20,7 @@ const useFilterLibrary = (category) => {
           key={record.bookData.id}
           book={record.bookData}
           showDeleteIcon={true}
-          actionsComponent={<LibraryActions book={record.bookData} />}
+          component="library"
         />
       );
     });

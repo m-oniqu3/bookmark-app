@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import Books from "../components/books/Books";
-import ShelfActions from "../components/shelves/ShelfActions";
 
 const useFilterShelf = (selectedShelf) => {
   const { shelf } = useSelector((state) => state.bookShelf);
@@ -26,7 +25,7 @@ const useFilterShelf = (selectedShelf) => {
         <Books
           key={record.bookData.id}
           book={record.bookData}
-          actionsComponent={<ShelfActions book={record.bookData} />}
+          component="shelf"
         />
       );
     });

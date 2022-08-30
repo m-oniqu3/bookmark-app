@@ -38,6 +38,7 @@ const AddToLibrary = (props) => {
   const addToLibrary = (category) => {
     dispatch(addBookToLibrary({ bookData, category, timeAdded: Date.now() }));
     props.setOpenLibraryModal(false);
+    props.closeModal(false);
   };
 
   const handleClose = () => props.setOpenLibraryModal(false);
