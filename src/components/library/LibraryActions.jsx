@@ -48,7 +48,7 @@ const LibraryActions = (props) => {
         <Modal setOpenModal={setOpenModal} openModal={openModal}>
           <AddToLibrary
             selectedBook={props.book}
-            setOpenLibraryModal={setOpenModal}
+            setOpenModal={setOpenModal}
             closeModal={props.closeModal}
           />
         </Modal>

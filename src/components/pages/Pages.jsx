@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../nav/Navbar";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Home";
@@ -9,8 +9,36 @@ import Shelves from "./Shelves";
 import NoMatch from "../helpers/routes/NoMatch";
 import BookDetails from "../books/BookDetails";
 import ProtectedRoute from "../helpers/routes/ProtectedRoute";
+import Notification from "../helpers/notification/Notification";
+import { Store } from "react-notifications-component";
+import { useSelector } from "react-redux";
 
 const Pages = () => {
+  const { feedback } = useSelector((state) => state.bookStore);
+
+  useEffect(() => {
+    if (feedback.message !== "") {
+      Store.addNotification({
+        content: (
+          <Notification
+            type={feedback.type}
+            message={feedback.message}
+            title={feedback.title}
+          />
+        ),
+
+        insert: "top",
+        container: "top-left",
+        animationIn: ["animate__animated", "animate__fadeIn"],
+        animationOut: ["animate__animated", "animate__fadeOut"],
+
+        dismiss: {
+          duration: 1200,
+          pauseOnHover: true,
+        },
+      });
+    }
+  }, [feedback]);
   return (
     <>
       <Navbar />

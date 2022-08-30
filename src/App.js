@@ -3,6 +3,8 @@ import "./App.css";
 import Pages from "./components/pages/Pages";
 import { useDispatch } from "react-redux";
 import { setUser } from "./store/features/auth/authSlice";
+import { ReactNotifications } from "react-notifications-component";
+import "react-notifications-component/dist/theme.css";
 
 function App() {
   const dispatch = useDispatch();
@@ -15,6 +17,7 @@ function App() {
 
   return (
     <>
+      <ReactNotifications isMobile={true} />
       <Pages />
     </>
   );

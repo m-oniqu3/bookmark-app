@@ -14,10 +14,9 @@ const exploreLinks = [
 const ExploreNav = () => {
   const links = exploreLinks.map(({ linkName, link }) => {
     return (
-      <li>
+      <li key={linkName}>
         <Link
           to={`#${link}`}
-          key={linkName}
           scroll={(el) =>
             el.scrollIntoView({ behavior: "smooth", block: "center" })
           }
