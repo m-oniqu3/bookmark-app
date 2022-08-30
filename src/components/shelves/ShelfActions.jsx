@@ -33,17 +33,13 @@ const ShelfActions = (props) => {
       <div className="actions">
         {/* Button to add to library */}
         <p onClick={addToShelfHandler}>
-          <span>
-            <RiAddCircleLine size="25px" fontWeight="700" />
-          </span>
+          <RiAddCircleLine size="25px" fontWeight="700" />
           Add to Shelf
         </p>
 
         {/* Button to add to get more details */}
         <p onClick={handleDetails}>
-          <span>
-            <MdInfoOutline size="25px" fontWeight="700" />
-          </span>
+          <MdInfoOutline size="25px" fontWeight="700" />
           Details & More
         </p>
       </div>

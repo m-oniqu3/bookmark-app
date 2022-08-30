@@ -60,11 +60,11 @@ const librarySlice = createSlice({
       else state.bookAlreadyInLibraryCategory = "";
     },
     removeBookFromLibrary: (state, action) => {
-      const data = action.payload; //bookid
+      const bookId = action.payload; //bookid
 
       // remove the book from the library
       state.library = state.library.filter(
-        (book) => book.bookData.id !== data.bookId
+        (book) => book.bookData.id !== bookId
       );
 
       state.feedback = {
