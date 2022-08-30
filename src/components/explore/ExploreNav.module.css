@@ -1,0 +1,49 @@
+.explore-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 8.5vh;
+    border-bottom: 1px solid rgba(230, 230, 230, 0.688);
+    margin-bottom: 2rem;
+    overflow-x: scroll;
+    scrollbar-width: none;
+}
+
+.explore-nav::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+    display: none;
+    /* Chrome */
+}
+
+.title {
+    display: none;
+}
+
+.links {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}
+
+
+.explore-nav a {
+    min-width: max-content;
+    font-weight: 400;
+    color: var(--med-grey);
+    text-decoration: none;
+}
+
+
+/* Media Queries */
+
+@media (min-width:900px) {
+    .title {
+        display: grid;
+        font-size: 1rem;
+        font-weight: bold;
+        font-family: "Roboto", sans-serif;
+        color: var(--dark-blue);
+    }
+}

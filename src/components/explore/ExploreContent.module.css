@@ -1,0 +1,30 @@
+.explore-content {
+    margin: 2rem 0 4rem;
+    padding-bottom: 3rem;
+}
+
+.title {
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    font-weight: bold;
+    text-transform: capitalize;
+    color: var(--dark-blue);
+    font-family: "Roboto", sans-serif;
+}
+
+.explore-books {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    padding: 1rem 0 1.5rem;
+    gap: 1rem;
+}
+
+
+.explore-books::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+    display: none;
+    /* Chrome */
+}
