@@ -71,7 +71,7 @@ const Books = (props) => {
         <Modal setOpenModal={setOpenModal} openModal={openModal}>
           <Information
             book={props.book}
-            actionsComponent={props.actionsComponent}
+            component={props.component}
             setOpenModal={setOpenModal}
           />
         </Modal>
