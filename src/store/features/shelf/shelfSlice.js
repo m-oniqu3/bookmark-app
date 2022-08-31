@@ -166,7 +166,6 @@ const shelfSlice = createSlice({
         }
       }
     },
-
     removeBookFromAllShelves: (state, action) => {
       const bookId = action.payload; //bookId
 
@@ -180,6 +179,9 @@ const shelfSlice = createSlice({
         }
       });
     },
+    updateShelf: (state, action) => {
+      state.shelf = action.payload;
+    },
   },
 });
 
@@ -191,5 +193,6 @@ export const {
   getShelvesForCurrentBook,
   addToShelf,
   removeBookFromAllShelves,
+  updateShelf,
 } = shelfSlice.actions;
 export default shelfSlice.reducer;

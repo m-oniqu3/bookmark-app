@@ -16,7 +16,9 @@ import { useSelector } from "react-redux";
 const Pages = () => {
   const { feedback } = useSelector((state) => state.bookStore);
   const { shelfFeedback } = useSelector((state) => state.bookShelf);
+  const { user } = useSelector((state) => state.auth);
 
+  // show notifications when feedback is received
   useEffect(() => {
     if (feedback.message !== "") {
       Store.addNotification({
@@ -69,22 +71,26 @@ const Pages = () => {
       <Navbar />
       <Routes>
         <Route path="/" exact element={<Home />} />
-        <Route
-          path="/library"
-          element={
-            <ProtectedRoute>
-              <Library />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/shelves"
-          element={
-            <ProtectedRoute>
-              <Shelves />
-            </ProtectedRoute>
-          }
-        />
+        {user !== null && (
+          <Route
+            path="/library"
+            element={
+              <ProtectedRoute>
+                <Library />
+              </ProtectedRoute>
+            }
+          />
+        )}
+        {user !== null && (
+          <Route
+            path="/shelves"
+            element={
+              <ProtectedRoute>
+                <Shelves />
+              </ProtectedRoute>
+            }
+          />
+        )}
         <Route path="/search/:query" element={<Search />} />
         <Route path="/details/:bookId" element={<BookDetails />} />
         <Route path="/explore" element={<Explore />} />

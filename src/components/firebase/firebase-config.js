@@ -21,7 +21,7 @@ export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
 
 // library
-export const libraryCollection = collection(database, "books");
+export const booksCollection = collection(database, "books");
 
 // add library to firebase
 export const addDataToFirebase = async (id, library, shelf) => {

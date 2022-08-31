@@ -75,6 +75,9 @@ const librarySlice = createSlice({
 
       return state;
     },
+    updateLibrary: (state, action) => {
+      state.library = action.payload;
+    },
   },
 });
 
@@ -82,5 +85,6 @@ export const {
   addBookToLibrary,
   checkIfBookAlreadyExists,
   removeBookFromLibrary,
+  updateLibrary,
 } = librarySlice.actions;
 export default librarySlice.reducer;
