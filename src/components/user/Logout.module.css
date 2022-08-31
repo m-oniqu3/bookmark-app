@@ -1,0 +1,31 @@
+.logout {
+    background-color: var(--white);
+    text-align: center;
+    padding: 2rem 0;
+    border-radius: 10px;
+    max-width: 500px;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    width: 80vw;
+    position: relative;
+}
+
+.logout h1 {
+    font-size: 1.2rem;
+    color: var(--dark-blue);
+    font-weight: 700;
+    font-family: "Roboto", sans-serif;
+}
+
+.logout p {
+    padding: 1rem 0;
+    width: min(100%, 400px);
+    margin: 0 auto;
+}
+
+.close {
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+    cursor: pointer;
+    color: var(--dark-blue);
+}

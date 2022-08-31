@@ -20,6 +20,7 @@ const AddToLibrary = (props) => {
   //return empty string if the data is undefined
   const bookCategory = book?.categories === undefined ? "" : book.categories;
   const info = book?.searchInfo === undefined ? "" : book.searchInfo;
+  const desc = book?.description === undefined ? "" : book.description;
 
   const bookData = useMemo(() => {
     return {
@@ -30,9 +31,9 @@ const AddToLibrary = (props) => {
       imageLinks: book.imageLinks,
       categories: bookCategory,
       searchInfo: info,
-      description: book.description,
+      description: desc,
     };
-  }, [book, bookCategory, info]);
+  }, [book, bookCategory, info, desc]);
 
   // function to add the user and the selected book to the library
   const addToLibrary = (category) => {

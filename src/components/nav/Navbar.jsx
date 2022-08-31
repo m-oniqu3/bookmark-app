@@ -10,16 +10,19 @@ import Button from "../button/Button";
 import Modal from "../helpers/modal/Modal";
 import Login from "../user/Login";
 import { useSelector } from "react-redux";
+import Logout from "../user/Logout";
 
 const Navbar = () => {
   const { isSignedIn } = useSelector((state) => state.auth);
   const [openMenu, setOpenMenu] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const [openLogoutModal, setOpenLogoutModal] = useState(false);
   const { pathname } = useLocation();
 
   // handle menu open/close
   const handleMenu = () => setOpenMenu((state) => !state);
   const handleLogin = () => setOpenModal((state) => !state);
+  const handleLogout = () => setOpenLogoutModal((state) => !state);
 
   //if openMenu is true, prevent scrolling on body
   useEffect(() => {
@@ -69,7 +72,7 @@ const Navbar = () => {
               {!isSignedIn ? (
                 <Button onClick={handleLogin}>Sign in</Button>
               ) : (
-                <Button>Logout</Button>
+                <Button onClick={handleLogout}>Logout</Button>
               )}
             </div>
 
@@ -88,6 +91,12 @@ const Navbar = () => {
       {openModal && (
         <Modal setOpenModal={setOpenModal} openModal={openModal}>
           <Login setOpenModal={setOpenModal} />
+        </Modal>
+      )}
+
+      {openLogoutModal && (
+        <Modal setOpenModal={setOpenLogoutModal} openModal={openLogoutModal}>
+          <Logout setOpenLogoutModal={setOpenLogoutModal} />
         </Modal>
       )}
     </>

@@ -18,7 +18,7 @@
     align-items: center;
     gap: 1rem;
     cursor: pointer;
-    /* font-size: clamp(1rem, 2vw, 1.1rem); */
+    width: min(100%, 400px);
 }
 
 .link {
@@ -27,7 +27,6 @@
 }
 
 .active {
-    font-weight: 600;
     color: var(--dark-blue);
 }
 
@@ -47,7 +46,4 @@
         font-family: "Roboto", sans-serif;
     }
 
-    .library-links {
-        gap: 2rem;
-    }
 }

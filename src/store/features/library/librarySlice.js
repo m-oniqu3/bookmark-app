@@ -3,11 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   library: [],
   bookAlreadyInLibraryCategory: "",
-  feedback: {
-    title: "",
-    message: "",
-    type: "",
-  },
+  feedback: { title: "", message: "", type: "" },
 };
 
 const librarySlice = createSlice({
@@ -78,6 +74,11 @@ const librarySlice = createSlice({
     updateLibrary: (state, action) => {
       state.library = action.payload;
     },
+    clearLibrary: (state) => {
+      state.library = [];
+      state.bookAlreadyInLibraryCategory = "";
+      state.feedback = { title: "", message: "", type: "" };
+    },
   },
 });
 
@@ -86,5 +87,6 @@ export const {
   checkIfBookAlreadyExists,
   removeBookFromLibrary,
   updateLibrary,
+  clearLibrary,
 } = librarySlice.actions;
 export default librarySlice.reducer;

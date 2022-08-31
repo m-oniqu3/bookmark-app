@@ -10,6 +10,7 @@
   font-weight: 300;
 }
 
+
 :root {
   --yellow: #c2a410;
   --light-grey: #f2f2f2;
@@ -170,6 +171,7 @@
   }
 
 }
+
 
 @media (min-width: 1024px) {
   .books-grid {

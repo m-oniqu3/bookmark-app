@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { GoogleAuthProvider, getAuth } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signOut } from "firebase/auth";
 import { collection, doc, getFirestore, setDoc } from "firebase/firestore";
 
 // firebase configuration
@@ -18,12 +18,14 @@ export const database = getFirestore(app);
 
 // auth
 export const auth = getAuth(app);
-export const provider = new GoogleAuthProvider();
+export const provider = new GoogleAuthProvider().setCustomParameters({
+  prompt: "select_account",
+});
 
 // library
 export const booksCollection = collection(database, "books");
 
-// add library to firebase
+// add data to firebase
 export const addDataToFirebase = async (id, library, shelf) => {
   const currentDoc = doc(database, "books", `${id}`);
   await setDoc(
@@ -31,4 +33,12 @@ export const addDataToFirebase = async (id, library, shelf) => {
     { userData: { library: [...library], shelf: { ...shelf } } },
     { merge: true }
   );
+};
+
+// sign user out
+
+export const signUserOut = async () => {
+  await signOut(auth)
+    .then(() => localStorage.removeItem("user"))
+    .catch((error) => alert(error));
 };
