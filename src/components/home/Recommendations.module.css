@@ -1,0 +1,15 @@
+.recs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto 4rem;
+  width: min(100%, 1200px);
+}
+
+@media (min-width: 1024px) {
+  .recs {
+    justify-content: space-between;
+  }
+}

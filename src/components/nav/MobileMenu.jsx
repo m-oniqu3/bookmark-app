@@ -1,54 +1,74 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "./MobileMenu.module.css";
 import ReactDOM from "react-dom";
 import Container from "../helpers/container/Container";
-import { BiSearch } from "react-icons/bi";
-import { VscClose } from "react-icons/vsc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { VscClose } from "react-icons/vsc";
+import bookmark from "../../images/bookmark.png";
+import Modal from "../helpers/modal/Modal";
+import Login from "../user/Login";
+import Logout from "../user/Logout";
 
 const MobileMenu = (props) => {
   const { isSignedIn } = useSelector((state) => state.auth);
-  const navigate = useNavigate();
+  const [openLoginModal, setOpenLoginModal] = useState(false);
+  const [openLogoutModal, setOpenLogoutModal] = useState(false);
 
   //close menu
   const handleClose = () => props.setOpenMenu((state) => !state);
 
-  const handleSearch = () => navigate("/search");
+  const handleLogin = () => {
+    if (isSignedIn) setOpenLogoutModal((state) => !state);
+    else setOpenLoginModal((state) => !state);
+  };
 
   return ReactDOM.createPortal(
-    <div className={styled.menu}>
-      <Container>
-        <div className={styled.menu__header}>
-          <p className={styled.menu__logo}>Bookmark</p>
+    <>
+      <div className={styled.menu}>
+        <Container>
+          <div className={styled.menu__header}>
+            <figure className={styled.menu__logo}>
+              <img src={bookmark} alt="Bookmark Logo" />
+            </figure>
 
-          <div className={styled.menu__icons}>
-            <BiSearch size={20} onClick={handleSearch} />
-            <VscClose size={25} onClick={handleClose} />
+            <div className={styled.menu__icons} onClick={handleClose}>
+              <VscClose size={35} color="var(--yellow)" />
+            </div>
           </div>
-        </div>
+          <ul className={styled.menu__list}>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/explore">Explore</Link>
+            </li>
+            {isSignedIn && (
+              <li>
+                <Link to="/library">Library</Link>
+              </li>
+            )}
+            {isSignedIn && (
+              <li>
+                <Link to="/shelves">Shelves</Link>
+              </li>
+            )}
+            <p onClick={handleLogin}>{!isSignedIn ? "Login" : "Logout"}</p>
+          </ul>
+        </Container>
+      </div>
+      {openLoginModal && (
+        <Modal setOpenModal={setOpenLoginModal} openModal={openLoginModal}>
+          <Login setOpenModal={setOpenLoginModal} />
+        </Modal>
+      )}
 
-        <ul className={styled.menu__list}>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/explore">Explore</Link>
-          </li>
-          {isSignedIn && (
-            <li>
-              <Link to="/library">Library</Link>
-            </li>
-          )}
-          {isSignedIn && (
-            <li>
-              <Link to="/shelves">Shelves</Link>
-            </li>
-          )}
-          {!isSignedIn ? <p>Sign In</p> : <p>Sign Out</p>}
-        </ul>
-      </Container>
-    </div>,
+      {openLogoutModal && (
+        <Modal setOpenModal={setOpenLogoutModal} openModal={openLogoutModal}>
+          <Logout setOpenLogoutModal={setOpenLogoutModal} />
+        </Modal>
+      )}
+    </>,
     document.querySelector("#nav")
   );
 };

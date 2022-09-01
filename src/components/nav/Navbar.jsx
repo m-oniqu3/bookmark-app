@@ -4,22 +4,25 @@ import Container from "../helpers/container/Container";
 import { AiOutlineMenu } from "react-icons/ai";
 import bookmark from "../../images/bookmark.png";
 import MobileMenu from "./MobileMenu";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink as Link, useLocation } from "react-router-dom";
 import SearchBar from "../search/SearchBar";
 import Button from "../button/Button";
 import Modal from "../helpers/modal/Modal";
 import Login from "../user/Login";
 import { useSelector } from "react-redux";
+import Logout from "../user/Logout";
 
 const Navbar = () => {
   const { isSignedIn } = useSelector((state) => state.auth);
   const [openMenu, setOpenMenu] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const [openLogoutModal, setOpenLogoutModal] = useState(false);
   const { pathname } = useLocation();
 
   // handle menu open/close
   const handleMenu = () => setOpenMenu((state) => !state);
   const handleLogin = () => setOpenModal((state) => !state);
+  const handleLogout = () => setOpenLogoutModal((state) => !state);
 
   //if openMenu is true, prevent scrolling on body
   useEffect(() => {
@@ -31,6 +34,14 @@ const Navbar = () => {
   useEffect(() => {
     setOpenMenu(false);
   }, [pathname]);
+
+  //active link style
+  const navStyle = ({ isActive }) => {
+    return {
+      color: isActive ? " var(--dark-blue)" : "var(--med-grey)",
+      fontWeight: isActive ? "bold" : "500",
+    };
+  };
 
   return (
     <>
@@ -46,20 +57,28 @@ const Navbar = () => {
 
             <ul className={styled.nav__list}>
               <li>
-                <Link to="/">Home</Link>
+                <Link style={navStyle} to="/">
+                  Home
+                </Link>
               </li>
               <li>
-                <Link to="/explore">Explore</Link>
+                <Link style={navStyle} to="/explore">
+                  Explore
+                </Link>
               </li>
 
               {isSignedIn && (
                 <li>
-                  <Link to="/library">Library</Link>
+                  <Link style={navStyle} to="/library">
+                    Library
+                  </Link>
                 </li>
               )}
               {isSignedIn && (
                 <li>
-                  <Link to="/shelves">Shelves</Link>
+                  <Link style={navStyle} to="/shelves">
+                    Shelves
+                  </Link>
                 </li>
               )}
             </ul>
@@ -67,17 +86,15 @@ const Navbar = () => {
             <div className={styled.nav__group}>
               <SearchBar />
               {!isSignedIn ? (
-                <Button onClick={handleLogin}>Sign in</Button>
+                <Button onClick={handleLogin}>Login</Button>
               ) : (
-                <Button>Logout</Button>
+                <Button onClick={handleLogout}>Logout</Button>
               )}
             </div>
 
-            <AiOutlineMenu
-              className={styled.nav__menu}
-              size={32}
-              onClick={handleMenu}
-            />
+            <div onClick={handleMenu} className={styled.nav__menu}>
+              <AiOutlineMenu />
+            </div>
           </nav>
         </Container>
 
@@ -88,6 +105,12 @@ const Navbar = () => {
       {openModal && (
         <Modal setOpenModal={setOpenModal} openModal={openModal}>
           <Login setOpenModal={setOpenModal} />
+        </Modal>
+      )}
+
+      {openLogoutModal && (
+        <Modal setOpenModal={setOpenLogoutModal} openModal={openLogoutModal}>
+          <Logout setOpenLogoutModal={setOpenLogoutModal} />
         </Modal>
       )}
     </>

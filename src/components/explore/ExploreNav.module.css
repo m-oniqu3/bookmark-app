@@ -27,9 +27,11 @@
     list-style: none;
 }
 
-
-.explore-nav a {
+.links li {
     min-width: max-content;
+}
+
+.links a {
     font-weight: 400;
     color: var(--med-grey);
     text-decoration: none;

@@ -4,11 +4,7 @@ const initialState = {
   shelf: {},
   isShelfEmpty: true,
   currentBookShelves: [],
-  shelfFeedback: {
-    title: "",
-    message: "",
-    type: "",
-  },
+  shelfFeedback: { title: "", message: "", type: "" },
 };
 
 const shelfSlice = createSlice({
@@ -166,7 +162,6 @@ const shelfSlice = createSlice({
         }
       }
     },
-
     removeBookFromAllShelves: (state, action) => {
       const bookId = action.payload; //bookId
 
@@ -180,6 +175,15 @@ const shelfSlice = createSlice({
         }
       });
     },
+    updateShelf: (state, action) => {
+      state.shelf = action.payload;
+    },
+    clearShelf: (state) => {
+      state.shelf = {};
+      state.isShelfEmpty = true;
+      state.currentBookShelves = [];
+      state.shelfFeedback = { title: "", message: "", type: "" };
+    },
   },
 });
 
@@ -191,5 +195,7 @@ export const {
   getShelvesForCurrentBook,
   addToShelf,
   removeBookFromAllShelves,
+  updateShelf,
+  clearShelf,
 } = shelfSlice.actions;
 export default shelfSlice.reducer;

@@ -13,9 +13,7 @@ const LibraryNav = ({ searchParams, setSearchParams }) => {
 
   //update the search params when the link changes
   useEffect(() => {
-    if (link) {
-      setSearchParams({ category: link });
-    }
+    if (link) setSearchParams({ category: link });
   }, [link, setSearchParams]);
 
   const navLinks = links.map((link) => {

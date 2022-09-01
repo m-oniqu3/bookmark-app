@@ -1,0 +1,37 @@
+.hero {
+    background-position: center;
+    background-repeat: none;
+    background-size: cover;
+    height: 90vh;
+    position: relative;
+}
+
+.hero-alt {
+    background-position: 40%;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: min(70%, 500px)
+}
+
+.hero-text p {
+    width: min(90%, 350px)
+}
+
+.hero-text h1 {
+    width: 70%;
+}
+
+
+@media (min-width: 1024px) {
+    .hero {
+        height: 100vh;
+    }
+
+    .hero-text h1 {
+        width: 80%;
+    }
+}

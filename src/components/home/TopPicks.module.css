@@ -1,0 +1,34 @@
+.top-picks {
+    padding: 3rem 0;
+    height: 100%;
+}
+
+.top-picks-info {
+    text-align: center;
+}
+
+.top-picks-info p {
+    width: min(100%, 500px);
+    margin: auto;
+}
+
+@media (min-width: 768px) {
+    .top-picks-info {
+        width: 70%;
+        margin: 3rem auto;
+        gap: 0;
+    }
+
+    .top-picks-info h1 {
+        text-align: center;
+    }
+}
+
+@media (min-width: 1024px) {
+    .top-picks-info {
+        /* margin: 0; */
+        /* text-align: left; */
+        /* margin-right: auto; */
+        width: 50%;
+    }
+}

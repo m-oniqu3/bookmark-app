@@ -11,12 +11,30 @@ import BookDetails from "../books/BookDetails";
 import ProtectedRoute from "../helpers/routes/ProtectedRoute";
 import Notification from "../helpers/notification/Notification";
 import { Store } from "react-notifications-component";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { updateLibrary } from "../../store/features/library/librarySlice";
+import { updateShelf } from "../../store/features/shelf/shelfSlice";
+import useGetDataFromFirebase from "../../hooks/useGetDataFromFirebase";
+import Loading from "../helpers/loading/Loading";
 
 const Pages = () => {
   const { feedback } = useSelector((state) => state.bookStore);
   const { shelfFeedback } = useSelector((state) => state.bookShelf);
+  const { user, isSignedIn } = useSelector((state) => state.auth);
+  const [dataForUser, loading] = useGetDataFromFirebase();
+  const dispatch = useDispatch();
 
+  //update store
+  useEffect(() => {
+    if (isSignedIn && !!dataForUser) {
+      const { library, shelf } = dataForUser;
+
+      if (!!library) dispatch(updateLibrary(library));
+      if (!!shelf) dispatch(updateShelf(shelf));
+    }
+  }, [dataForUser, dispatch, isSignedIn]);
+
+  // show notifications when feedback is received
   useEffect(() => {
     if (feedback.message !== "") {
       Store.addNotification({
@@ -67,24 +85,29 @@ const Pages = () => {
   return (
     <>
       <Navbar />
+      {isSignedIn && loading && <Loading />}
       <Routes>
         <Route path="/" exact element={<Home />} />
-        <Route
-          path="/library"
-          element={
-            <ProtectedRoute>
-              <Library />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/shelves"
-          element={
-            <ProtectedRoute>
-              <Shelves />
-            </ProtectedRoute>
-          }
-        />
+        {user !== null && (
+          <Route
+            path="/library"
+            element={
+              <ProtectedRoute>
+                <Library />
+              </ProtectedRoute>
+            }
+          />
+        )}
+        {user !== null && (
+          <Route
+            path="/shelves"
+            element={
+              <ProtectedRoute>
+                <Shelves />
+              </ProtectedRoute>
+            }
+          />
+        )}
         <Route path="/search/:query" element={<Search />} />
         <Route path="/details/:bookId" element={<BookDetails />} />
         <Route path="/explore" element={<Explore />} />

@@ -1,0 +1,46 @@
+.heading,
+.heading span {
+  font-weight: bold;
+  /* letter-spacing: 1px; */
+  line-height: 110%;
+  color: var(--dark-blue);
+  font-family: "Roboto", sans-serif;
+}
+
+.heading span {
+  color: var(--yellow);
+}
+
+.heading-lg,
+.heading-lg span {
+  font-size: 2.8rem;
+}
+
+.heading-md,
+.heading-md span {
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* Media Queries for Tablet  */
+@media (min-width: 768px) {
+
+  .heading-lg,
+  .heading-lg span {
+    font-size: 4rem;
+  }
+
+  .heading-md,
+  .heading-md span {
+    font-size: 3rem;
+  }
+}
+
+/* Media Queries for Desktop  */
+@media (min-width: 1024px) {
+
+  .heading-md,
+  .heading-md span {
+    text-align: left;
+  }
+}

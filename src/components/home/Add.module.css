@@ -1,0 +1,54 @@
+.add {
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.add figure {
+    width: 100%;
+    max-width: 400px;
+    margin: 3rem auto;
+    padding-top: 3rem;
+}
+
+.add figure img {
+    width: 100%;
+}
+
+
+@media (min-width: 768px) {
+    .add-info {
+        width: 70%;
+        margin: 3rem auto;
+    }
+
+    .add figure {
+        margin: 5rem auto;
+    }
+
+
+}
+
+@media (min-width:1024px) {
+    .add {
+        text-align: left;
+    }
+
+    .wrap {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 3rem;
+        place-content: center;
+        place-items: center;
+
+    }
+
+    .add-info {
+        padding: 3rem 0;
+        max-width: 400px;
+        margin: 0;
+    }
+
+    .add-info h1 {
+        width: 70%;
+    }
+}
