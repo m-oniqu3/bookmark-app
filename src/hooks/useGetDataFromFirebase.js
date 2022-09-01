@@ -2,7 +2,6 @@ import { getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { booksCollection } from "../components/firebase/firebase-config";
-import Loading from "../components/helpers/loading/Loading";
 
 const useGetDataFromFirebase = () => {
   const [data, setData] = useState([]);
