@@ -70,17 +70,15 @@ const Navbar = () => {
             <div className={styled.nav__group}>
               <SearchBar />
               {!isSignedIn ? (
-                <Button onClick={handleLogin}>Sign in</Button>
+                <Button onClick={handleLogin}>Login</Button>
               ) : (
                 <Button onClick={handleLogout}>Logout</Button>
               )}
             </div>
 
-            <AiOutlineMenu
-              className={styled.nav__menu}
-              size={32}
-              onClick={handleMenu}
-            />
+            <div onClick={handleMenu} className={styled.nav__menu}>
+              <AiOutlineMenu />
+            </div>
           </nav>
         </Container>
 

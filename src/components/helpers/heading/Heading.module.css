@@ -1,7 +1,7 @@
 .heading,
 .heading span {
   font-weight: bold;
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
   line-height: 110%;
   color: var(--dark-blue);
   font-family: "Roboto", sans-serif;

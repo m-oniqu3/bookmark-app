@@ -7,13 +7,9 @@
     text-align: center;
 }
 
-.recommendations {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 3rem;
-    /* align-items: center; */
-    place-items: center;
-    margin-top: 2rem;
+.top-picks-info p {
+    width: min(100%, 500px);
+    margin: auto;
 }
 
 @media (min-width: 768px) {
@@ -22,19 +18,17 @@
         margin: 3rem auto;
         gap: 0;
     }
+
+    .top-picks-info h1 {
+        text-align: center;
+    }
 }
 
 @media (min-width: 1024px) {
     .top-picks-info {
-        margin: 0;
-        text-align: left;
-        margin-right: auto;
-        width: 35%;
-    }
-
-    .recommendations {
-        justify-content: left;
-        margin-top: 3rem;
-        place-items: center flex-start;
+        /* margin: 0; */
+        /* text-align: left; */
+        /* margin-right: auto; */
+        width: 50%;
     }
 }
