@@ -1,0 +1,18 @@
+.recs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 2rem 0 4rem;
+}
+
+
+/* Media Queries */
+
+@media (min-width:1024px) {
+  .recs {
+    justify-content: start;
+    gap: 4rem;
+  }
+}

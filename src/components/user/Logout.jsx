@@ -11,7 +11,6 @@ import { signUserOut } from "../firebase/firebase-config";
 import { clearLibrary } from "../../store/features/library/librarySlice";
 import { clearShelf } from "../../store/features/shelf/shelfSlice";
 import { setUser } from "../../store/features/auth/authSlice";
-import Loading from "../helpers/loading/Loading";
 
 const Logout = (props) => {
   const dispatch = useDispatch();

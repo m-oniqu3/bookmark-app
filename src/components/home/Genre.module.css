@@ -1,0 +1,103 @@
+.genre {
+    background-image: url("../../images/wave_vector.png");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    padding: 2rem 0;
+}
+
+.wrap {
+    padding-top: 4rem;
+}
+
+.paragraph {
+    text-align: center;
+}
+
+.genre-item {
+    font-size: 1rem;
+    padding: 10px 25px;
+    border-radius: 50px;
+    border: 1px solid var(--dark-blue);
+    color: var(--dark-blue);
+    text-align: center;
+    min-width: 120px;
+    width: fit-content;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.genre-item:hover {
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+
+.genre-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+
+}
+
+.genre-img {
+    padding: 3rem 0;
+    width: 100%;
+}
+
+.genre-img img {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .genre article {
+        width: 65%;
+        margin: 0 auto;
+    }
+
+    .med-img {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .wrap {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 3rem;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .wrap article {
+        padding: 3rem 0;
+        max-width: 400px;
+    }
+
+    .wrap article h1,
+    .wrap article .paragraph {
+        text-align: left;
+    }
+
+    .genre-group {
+        justify-content: left;
+    }
+
+    .genre article {
+        width: 90%;
+        margin: 0;
+        margin-right: auto;
+    }
+
+    .genre-img img {
+        transform: scale(1.2);
+    }
+
+    .med-img {
+        width: 70%;
+    }
+}
