@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import PrivateHome from "../home/PrivateHome";
 import PublicHome from "../home/PublicHome";
+import Footer from "../nav/Footer";
 
 const Home = () => {
   const { isSignedIn } = useSelector((state) => state.auth);
@@ -12,7 +14,8 @@ const Home = () => {
 
   return (
     <div style={home}>
-      {isSignedIn ? <p>Welcome to Bookmark</p> : <PublicHome />}
+      {isSignedIn ? <PrivateHome /> : <PublicHome />}
+      <Footer />
     </div>
   );
 };

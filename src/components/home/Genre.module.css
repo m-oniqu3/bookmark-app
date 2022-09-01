@@ -1,9 +1,4 @@
 .genre {
-    background-image: url("../../images/wave_vector.png");
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
     padding: 2rem 0;
 }
 
@@ -46,6 +41,7 @@
 .genre-img {
     padding: 3rem 0;
     width: 100%;
+
 }
 
 .genre-img img {
@@ -92,11 +88,6 @@
         margin: 0;
         margin-right: auto;
     }
-
-    /* 
-    .genre-img img {
-        transform: scale(1.2);
-    } */
 
     .med-img {
         width: 70%;

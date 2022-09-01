@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "./Booktok.module.css";
 import booktok from "../../images/booktok2.jpg";
 import Container from "../helpers/container/Container";

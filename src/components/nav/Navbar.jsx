@@ -4,7 +4,7 @@ import Container from "../helpers/container/Container";
 import { AiOutlineMenu } from "react-icons/ai";
 import bookmark from "../../images/bookmark.png";
 import MobileMenu from "./MobileMenu";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink as Link, useLocation } from "react-router-dom";
 import SearchBar from "../search/SearchBar";
 import Button from "../button/Button";
 import Modal from "../helpers/modal/Modal";
@@ -35,6 +35,14 @@ const Navbar = () => {
     setOpenMenu(false);
   }, [pathname]);
 
+  //active link style
+  const navStyle = ({ isActive }) => {
+    return {
+      color: isActive ? " var(--dark-blue)" : "var(--med-grey)",
+      fontWeight: isActive ? "bold" : "500",
+    };
+  };
+
   return (
     <>
       <div className={styled.nav__container}>
@@ -49,20 +57,28 @@ const Navbar = () => {
 
             <ul className={styled.nav__list}>
               <li>
-                <Link to="/">Home</Link>
+                <Link style={navStyle} to="/">
+                  Home
+                </Link>
               </li>
               <li>
-                <Link to="/explore">Explore</Link>
+                <Link style={navStyle} to="/explore">
+                  Explore
+                </Link>
               </li>
 
               {isSignedIn && (
                 <li>
-                  <Link to="/library">Library</Link>
+                  <Link style={navStyle} to="/library">
+                    Library
+                  </Link>
                 </li>
               )}
               {isSignedIn && (
                 <li>
-                  <Link to="/shelves">Shelves</Link>
+                  <Link style={navStyle} to="/shelves">
+                    Shelves
+                  </Link>
                 </li>
               )}
             </ul>

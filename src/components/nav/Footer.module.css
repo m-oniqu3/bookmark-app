@@ -1,0 +1,40 @@
+.footer-container {
+    background-color: var(--white);
+}
+
+.footer {
+    padding: 1rem 0;
+}
+
+.footer ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+
+
+.footer ul li a {
+    color: var(--med-grey);
+    text-decoration: none;
+    line-height: 135%;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.footer ul li a:hover {
+    color: var(--dark-blue);
+}
+
+.copyright {
+    padding: 1rem;
+    background-color: var(--light-grey);
+    color: var(--dark-blue);
+    text-align: center;
+    font-weight: 500;
+}
