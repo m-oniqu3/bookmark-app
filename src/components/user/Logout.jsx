@@ -23,10 +23,10 @@ const Logout = (props) => {
   //  sign user out and clear library and shelf
   const handleLogout = async () => {
     await signUserOut();
-    navigate("/", { replace: true });
-    dispatch(setUser({ user: null, isSignedIn: false }));
+    dispatch(setUser({}));
     dispatch(clearLibrary());
     dispatch(clearShelf());
+    navigate("/", { replace: true });
 
     setOpenLogoutModal(false);
   };

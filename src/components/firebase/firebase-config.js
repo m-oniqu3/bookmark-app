@@ -22,21 +22,18 @@ export const provider = new GoogleAuthProvider().setCustomParameters({
   prompt: "select_account",
 });
 
-// library
-export const booksCollection = collection(database, "books");
-
 // add data to firebase
+export const booksCollection = collection(database, "books");
 export const addDataToFirebase = async (id, library, shelf) => {
   const currentDoc = doc(database, "books", `${id}`);
   await setDoc(
     currentDoc,
-    { userData: { library: [...library], shelf: { ...shelf } } },
+    { id, library: [...library], shelf: { ...shelf } },
     { merge: true }
   );
 };
 
 // sign user out
-
 export const signUserOut = async () => {
   await signOut(auth)
     .then(() => localStorage.removeItem("user"))
