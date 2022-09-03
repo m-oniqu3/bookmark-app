@@ -30,12 +30,16 @@ const Pages = () => {
   useEffect(() => {
     // query to find data for the current user
     const request = query(booksCollection, where("id", "==", `${user}`));
+
+    // get document from firebase
     const unsub = onSnapshot(request, (snapshot) => {
       setDataForUser(
         snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
       );
       setLoading(false);
     });
+
+    // clean up, unsubscribe from listener
     return () => unsub();
   }, [user]);
 
@@ -50,22 +54,6 @@ const Pages = () => {
       if (Object.keys(shelf).length !== 0) dispatch(updateShelf(shelf));
     }
   }, [dataForUser, dispatch, user]);
-
-  //add library to firebase
-  // useEffect(() => {
-  //   if (isSignedIn && library.length > 0) {
-  //     console.log("library sending");
-  //     addLibraryToFirebase(user, library);
-  //   }
-  // }, [isSignedIn, library, user]);
-
-  // //add shelf to firebase
-  // useEffect(() => {
-  //   if (isSignedIn && Object.keys(shelf).length > 0) {
-  //     console.log("shelf sending");
-  //     addShelfToFirebase(user, shelf);
-  //   }
-  // }, [isSignedIn, user, shelf]);
 
   // show notifications when feedback is received
   useEffect(() => {

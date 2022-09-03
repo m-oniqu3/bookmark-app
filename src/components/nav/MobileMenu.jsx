@@ -18,6 +18,7 @@ const MobileMenu = (props) => {
   //close menu
   const handleClose = () => props.setOpenMenu((state) => !state);
 
+  //show either login/logout component
   const handleLogin = () => {
     if (isSignedIn) setOpenLogoutModal((state) => !state);
     else setOpenLoginModal((state) => !state);

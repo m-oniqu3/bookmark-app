@@ -13,9 +13,8 @@ function App() {
 
   //add library to firebase
   useEffect(() => {
-    if (user && (library.length !== 0 || Object.keys(shelf).length !== 0)) {
+    if (user && (library.length !== 0 || Object.keys(shelf).length !== 0))
       addDataToFirebase(user, library, shelf);
-    }
   }, [library, user, shelf]);
 
   return (
