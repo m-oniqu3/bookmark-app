@@ -38,7 +38,16 @@ const BookResults = ({ bookResults, searchQuery }) => {
 
   return (
     <>
-      <p style={{ textAlign: "center", paddingBottom: "1rem" }}>
+      <p
+        style={{
+          textAlign: "center",
+          padding: "1rem",
+          marginBottom: "1rem",
+          background: "var(--light-yellow)",
+          color: "var(--yellow)",
+          borderRadius: "5px",
+        }}
+      >
         Showing results for<span>{searchQuery}</span>
       </p>
       <div className="books-grid">{results}</div>

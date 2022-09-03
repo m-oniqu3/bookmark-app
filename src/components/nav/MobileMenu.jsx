@@ -59,13 +59,19 @@ const MobileMenu = (props) => {
       </div>
       {openLoginModal && (
         <Modal setOpenModal={setOpenLoginModal} openModal={openLoginModal}>
-          <Login setOpenModal={setOpenLoginModal} />
+          <Login
+            setOpenModal={setOpenLoginModal}
+            closeMenu={props.setOpenMenu}
+          />
         </Modal>
       )}
 
       {openLogoutModal && (
         <Modal setOpenModal={setOpenLogoutModal} openModal={openLogoutModal}>
-          <Logout setOpenLogoutModal={setOpenLogoutModal} />
+          <Logout
+            setOpenLogoutModal={setOpenLogoutModal}
+            closeMenu={props.setOpenMenu}
+          />
         </Modal>
       )}
     </>,

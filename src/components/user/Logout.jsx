@@ -27,7 +27,7 @@ const Logout = (props) => {
     dispatch(clearLibrary());
     dispatch(clearShelf());
     navigate("/", { replace: true });
-
+    if (props.closeMenu) props.closeMenu(false);
     setOpenLogoutModal(false);
   };
 

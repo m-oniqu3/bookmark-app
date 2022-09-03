@@ -20,6 +20,7 @@ const AddToShelf = (props) => {
 
     //close modal
     props.setOpenModal(false);
+    props.closeModal(false);
   };
 
   //everytime there is a change in the shelf, check if the selected book is already in the current user shelf

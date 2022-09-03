@@ -14,7 +14,9 @@ const Information = (props) => {
       <LibraryActions book={props.book} closeModal={props.setOpenModal} />
     );
   else if (props.component === "shelf")
-    component = <ShelfActions book={props.book} />;
+    component = (
+      <ShelfActions book={props.book} closeModal={props.setOpenModal} />
+    );
 
   return (
     <section className={styled["information-container"]}>

@@ -14,7 +14,10 @@ const Notification = (props) => {
     switch (props.type) {
       case "success":
         return (
-          <BsBookmarkCheckFill size="30px" style={{ color: "var(--yellow)" }} />
+          <BsBookmarkCheckFill
+            size="30px"
+            style={{ color: "var(--dark-blue)" }}
+          />
         );
       case "warning":
         return <RiErrorWarningFill size="30px" color="#856404" />;

@@ -28,11 +28,11 @@ const Login = (props) => {
         dispatch(setUser(data));
         localStorage.setItem("user", JSON.stringify(data));
         navigate(`${path}`, { replace: true });
+        props.setOpenModal(false);
       })
       .catch((error) => alert(error));
-
+    if (props.closeMenu) props.closeMenu(false);
     setLoading(false);
-    props.setOpenModal(false);
   };
 
   return (
