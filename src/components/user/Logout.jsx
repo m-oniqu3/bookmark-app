@@ -2,9 +2,7 @@ import React from "react";
 import styled from "./Logout.module.css";
 import { TbLogout } from "react-icons/tb";
 import { MdCancel } from "react-icons/md";
-// import { clearLibrary } from "../../store/features/library/librarySlice";
 import { useDispatch } from "react-redux";
-// import { clearShelf } from "../../store/features/shelf/shelfSlice";
 import { useNavigate } from "react-router-dom";
 import Container from "../helpers/container/Container";
 import { signUserOut } from "../firebase/firebase-config";
@@ -23,11 +21,11 @@ const Logout = (props) => {
   //  sign user out and clear library and shelf
   const handleLogout = async () => {
     await signUserOut();
-    navigate("/", { replace: true });
-    dispatch(setUser({ user: null, isSignedIn: false }));
+    dispatch(setUser({}));
     dispatch(clearLibrary());
     dispatch(clearShelf());
-
+    navigate("/", { replace: true });
+    if (props.closeMenu) props.closeMenu(false);
     setOpenLogoutModal(false);
   };
 

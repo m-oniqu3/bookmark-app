@@ -177,6 +177,8 @@ const shelfSlice = createSlice({
     },
     updateShelf: (state, action) => {
       state.shelf = action.payload;
+      if (action.payload?.shelves?.length === 0) state.isShelfEmpty = true;
+      else state.isShelfEmpty = false;
     },
     clearShelf: (state) => {
       state.shelf = {};

@@ -16,6 +16,9 @@ const Login = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  //get path from the url
+  const path = window.location.pathname;
+
   // login user, update store and local storage then redirect
   const handleLogin = async () => {
     setLoading(true);
@@ -24,12 +27,12 @@ const Login = (props) => {
         const data = { user: user.uid, isSignedIn: true };
         dispatch(setUser(data));
         localStorage.setItem("user", JSON.stringify(data));
-        navigate("/", { replace: true });
+        navigate(`${path}`, { replace: true });
+        props.setOpenModal(false);
       })
       .catch((error) => alert(error));
-
+    if (props.closeMenu) props.closeMenu(false);
     setLoading(false);
-    props.setOpenModal(false);
   };
 
   return (

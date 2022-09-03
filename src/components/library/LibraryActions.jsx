@@ -16,10 +16,7 @@ const LibraryActions = (props) => {
   //navigate to the book details page for the specified book
   const handleDetails = () => navigate(`/details/${props.book.id}`);
 
-  /**
-   * if user is signed in, open the add to library modal
-   * if user is not signed in, open the login modal
-   */
+  // show either add to library/login component
   const handleLibrary = () => {
     if (isSignedIn) setOpenModal((state) => !state);
     else setOpenLoginModal((state) => !state);

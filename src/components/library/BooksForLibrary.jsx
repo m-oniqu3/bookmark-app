@@ -18,16 +18,10 @@ const BooksForLibrary = ({ searchParams, setSearchParams }) => {
   let books = [];
   books = initial;
 
-  //books to return based on the selected category
-
+  //if the search param = TBR set the urlParam to To Be Read
   useEffect(() => {
-    //if the search param = TBR set the urlParam to To Be Read
-    if (urlParam === "TBR") {
-      setSearchParams({ category: "To Be Read" });
-    }
+    if (urlParam === "TBR") setSearchParams({ category: "To Be Read" });
   }, [setSearchParams, urlParam]);
-
-  //get data from database
 
   //return all books for the current user
   if (!urlParam || urlParam === "" || urlParam === "All") {

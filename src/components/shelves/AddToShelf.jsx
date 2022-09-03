@@ -17,6 +17,10 @@ const AddToShelf = (props) => {
     dispatch(
       addToShelf({ bookData: props.book, shelf, timeAdded: Date.now() })
     );
+
+    //close modal
+    props.setOpenModal(false);
+    props.closeModal(false);
   };
 
   //everytime there is a change in the shelf, check if the selected book is already in the current user shelf

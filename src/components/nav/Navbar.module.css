@@ -4,6 +4,7 @@
     position: fixed;
     width: 100%;
     z-index: 1;
+    padding: 1rem 0;
 }
 
 .nav {
@@ -13,7 +14,7 @@
     gap: 1rem;
     cursor: pointer;
     position: relative;
-    height: 10vh;
+
 }
 
 .nav__logo {

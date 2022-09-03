@@ -24,6 +24,7 @@
     font-weight: 700;
     margin: 1rem 0 .5rem;
     color: var(--dark-blue);
+    font-family: 'Roboto', sans-serif;
 }
 
 .create-shelf p {

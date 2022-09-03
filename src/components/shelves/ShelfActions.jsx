@@ -52,7 +52,11 @@ const ShelfActions = (props) => {
 
       {openShelfModal && (
         <Modal setOpenModal={setOpenShelfModal} openModal={openShelfModal}>
-          <AddToShelf book={props.book} setOpenModal={setOpenShelfModal} />
+          <AddToShelf
+            book={props.book}
+            setOpenModal={setOpenShelfModal}
+            closeModal={props.closeModal}
+          />
         </Modal>
       )}
     </section>

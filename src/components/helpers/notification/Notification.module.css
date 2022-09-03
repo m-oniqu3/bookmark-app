@@ -15,9 +15,9 @@
 }
 
 .success {
-    color: var(--yellow);
+    color: var(--dark-blue);
     background-color: var(--white);
-    border: 12px solid var(--yellow);
+    border: 15px solid var(--light-grey);
 }
 
 .warning {

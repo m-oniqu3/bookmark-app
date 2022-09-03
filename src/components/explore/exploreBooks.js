@@ -355,6 +355,54 @@ export const exploreBooks = [
   },
 
   {
+    id: "2gs8zQEACAAJ",
+    volumeInfo: {
+      title: "Credence",
+      authors: ["Penelope Douglas"],
+      publishedDate: "2020-01-13",
+      description:
+        "Tiernan grew up with wealth and privilege, but not love or guidence. After her parents' deaths, she goes to live with her father's stepbrother and his two sons. As the three of them take her under their wing, teach her to work and survive in the remote woods, she slowly finds her place among them. And she realizes that lines blur and rules become easy to break when no one is watching.",
+
+      categories: ["Man-woman relationships"],
+
+      imageLinks: {
+        smallThumbnail:
+          "http://books.google.com/books/content?id=2gs8zQEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+        thumbnail:
+          "http://books.google.com/books/content?id=2gs8zQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      },
+    },
+    searchInfo: {
+      textSnippet:
+        "&quot;Tiernan grew up with wealth and privilege, but not love or guidence.",
+    },
+    subject: ["Picks", "spice"],
+  },
+
+  {
+    id: "6HAatgEACAAJ",
+    volumeInfo: {
+      title: "Birthday Girl",
+      authors: ["Penelope Douglas"],
+      publishedDate: "2018-04-16",
+      description:
+        "From New York Times Bestselling author Penelope Douglas comes a new forbidden love story... JORDAN He took me in when I had nowhere else to go. He doesn't use me, hurt me, or forget about me. He doesn't treat me like I'm nothing, take me for granted, or make me feel unsafe. He remembers me, laughs with me, and looks at me. He listens to me, protects me, and sees me. I can feel his eyes on me over the breakfast table, and my heart pumps so hard when I hear him pull in the driveway after work. I have to stop this. It can't happen. My sister once told me there are no good men, and if you find one, he's probably unavailable. Only Pike Lawson isn't the unavailable one. I am. PIKE I took her in, because I thought I was helping. She'd cook a few meals and clean up a little. It was an easy arrangement. As the days go by, though, it's becoming anything but easy. I have to stop my mind from drifting to her and stop holding my breath every time I bump into her in the house. I can't touch her, and I shouldn't want to. The more I find my path crossing hers, though, the more she's becoming a part of me. But we're not free to give into this. She's nineteen, and I'm thirty-eight. And her boyfriend's father. Unfortunately, they both just moved into my house. *BIRTHDAY GIRL is a stand-alone, contemporary romance suitable for ages 18+.",
+
+      imageLinks: {
+        smallThumbnail:
+          "http://books.google.com/books/content?id=6HAatgEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+        thumbnail:
+          "http://books.google.com/books/content?id=6HAatgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      },
+    },
+    searchInfo: {
+      textSnippet:
+        "He remembers me, laughs with me, and looks at me. He listens to me, protects me, and sees me. I can feel his eyes on me over the breakfast table, and my heart pumps so hard when I hear him pull in the driveway after work.",
+    },
+    subject: ["Picks", "spice"],
+  },
+
+  {
     id: "jPodzgEACAAJ",
 
     volumeInfo: {
@@ -785,7 +833,7 @@ export const exploreBooks = [
       textSnippet:
         "A Time Best YA Book of All Time (2021) Two teens must learn the “art of killing” in this Printz Honor–winning book, the first in a chilling new series from Neal Shusterman, author of the New York Times bestselling Unwind dystology.",
     },
-    subject: ["Picks", "Fantasy", "Tiktok"],
+    subject: ["Picks", "Fantasy", "Tiktok", "Fiction"],
   },
 
   {
@@ -827,7 +875,7 @@ export const exploreBooks = [
       textSnippet:
         "&quot;Fan favorite Scarlett St. Clair expands her universe of New Greece and the Hades and Persephone retellings with a new series told in Hades&#39;s point of view.",
     },
-    subject: ["Picks", "Fantasy"],
+    subject: ["Picks", "Fantasy", "Fiction"],
   },
 
   {
@@ -932,7 +980,7 @@ export const exploreBooks = [
       textSnippet:
         "A brand new romantic comedy from New York Times bestseller Tessa Bailey!",
     },
-    subject: ["Picks", "Tiktok", "Romance", "Easy Reads"],
+    subject: ["Picks", "Tiktok", "Romance", "Easy Reads", "Fiction"],
   },
 
   {
