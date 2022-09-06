@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import styled from "./Login.module.css";
-
 import bookSitting from "../../images/book_sitting.png";
 import { FcGoogle } from "react-icons/fc";
-
 import { useNavigate } from "react-router-dom";
 import { signInWithPopup } from "firebase/auth";
 import Container from "../helpers/container/Container";
 import { auth, provider } from "../firebase/firebase-config";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../store/features/auth/authSlice";
+import { toast } from "react-toastify";
 
 const Login = (props) => {
   const [loading, setLoading] = useState(false);
@@ -30,7 +29,7 @@ const Login = (props) => {
         navigate(`${path}`, { replace: true });
         props.setOpenModal(false);
       })
-      .catch((error) => alert(error));
+      .catch((error) => toast.error(error, { autoClose: 5000 }));
     if (props.closeMenu) props.closeMenu(false);
     setLoading(false);
   };

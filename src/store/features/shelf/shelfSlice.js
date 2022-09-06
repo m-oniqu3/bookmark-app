@@ -4,7 +4,7 @@ const initialState = {
   shelf: {},
   isShelfEmpty: true,
   currentBookShelves: [],
-  shelfFeedback: { title: "", message: "", type: "" },
+  shelfFeedback: { message: "", type: "" },
 };
 
 const shelfSlice = createSlice({
@@ -17,11 +17,9 @@ const shelfSlice = createSlice({
       //check if shelf length is greater than 15
       if (state.shelf?.shelves?.length === 15) {
         state.shelfFeedback = {
-          title: "Error",
           message: "You can only have 15 shelves",
           type: "error",
         };
-        alert(state.shelfFeedback.message);
       } else {
         // Check if shelf already exists ,shelf is {booksOnShelves: [], shelves:[]}
         const shelfAlreadyExists = state.shelf?.shelves?.find(
@@ -33,14 +31,9 @@ const shelfSlice = createSlice({
             shelves: [data, ...(state.shelf.shelves ?? "")],
             booksOnShelves: [...previousBooksOnShelves],
           };
-          state.shelfFeedback = {
-            title: "Success",
-            message: "Shelf created",
-            type: "success",
-          };
+          state.shelfFeedback = { message: "Shelf created", type: "success" };
         } else if (shelfAlreadyExists) {
           state.shelfFeedback = {
-            title: "Warning",
             message: "Shelf already exists",
             type: "warning",
           };
@@ -60,11 +53,7 @@ const shelfSlice = createSlice({
             book.shelf.splice(book.shelf.indexOf(item), 1);
         });
       });
-      state.shelfFeedback = {
-        title: "Information",
-        message: "Shelf removed",
-        type: "info",
-      };
+      state.shelfFeedback = { message: "Shelf removed", type: "info" };
     },
     renameShelf: (state, action) => {
       const { oldShelfName, newShelfName } = action.payload;
@@ -80,11 +69,7 @@ const shelfSlice = createSlice({
         });
       });
 
-      state.shelfFeedback = {
-        title: "Information",
-        message: "Shelf renamed",
-        type: "info",
-      };
+      state.shelfFeedback = { message: "Shelf renamed", type: "info" };
     },
     checkIfUserHasShelves: (state, action) => {
       //check if user has shelves
@@ -120,7 +105,6 @@ const shelfSlice = createSlice({
           shelf: [{ shelf, timeAdded }],
         });
         state.shelfFeedback = {
-          title: "Success",
           message: "Book added to shelf",
           type: "success",
         };
@@ -146,7 +130,6 @@ const shelfSlice = createSlice({
           }
 
           state.shelfFeedback = {
-            title: "Information",
             message: "Book removed from shelf",
             type: "info",
           };
@@ -155,7 +138,6 @@ const shelfSlice = createSlice({
           bookAlreadyExists.shelf.unshift({ shelf, timeAdded });
 
           state.shelfFeedback = {
-            title: "Success",
             message: "Book added to shelf",
             type: "success",
           };
@@ -184,7 +166,7 @@ const shelfSlice = createSlice({
       state.shelf = {};
       state.isShelfEmpty = true;
       state.currentBookShelves = [];
-      state.shelfFeedback = { title: "", message: "", type: "" };
+      state.shelfFeedback = { message: "", type: "" };
     },
   },
 });

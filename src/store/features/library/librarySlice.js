@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   library: [],
   bookAlreadyInLibraryCategory: "",
-  feedback: { title: "", message: "", type: "" },
+  feedback: { message: "", type: "" },
 };
 
 const librarySlice = createSlice({
@@ -20,16 +20,11 @@ const librarySlice = createSlice({
 
       if (!bookAlreadyInLibrary) {
         state.library.unshift(data);
-        state.feedback = {
-          title: "Success",
-          message: "Book added to library",
-          type: "success",
-        };
+        state.feedback = { message: "Book added to library", type: "success" };
       } else if (bookAlreadyInLibrary) {
         // If book is already in library, check if it is in the same category
         if (bookAlreadyInLibrary.category === data.category) {
           state.feedback = {
-            title: "Warning",
             message: "This book is already in your library in this category",
             type: "warning",
           };
@@ -39,7 +34,6 @@ const librarySlice = createSlice({
           bookAlreadyInLibrary.category = data.category;
           bookAlreadyInLibrary.timeAdded = Date.now();
           state.feedback = {
-            title: "Information",
             message: "Book moved to new category",
             type: "info",
           };
@@ -63,11 +57,7 @@ const librarySlice = createSlice({
         (book) => book.bookData.id !== bookId
       );
 
-      state.feedback = {
-        title: "Information",
-        message: "Book removed from library.",
-        type: "info",
-      };
+      state.feedback = { message: "Book removed from library.", type: "info" };
 
       return state;
     },
@@ -77,7 +67,7 @@ const librarySlice = createSlice({
     clearLibrary: (state) => {
       state.library = [];
       state.bookAlreadyInLibraryCategory = "";
-      state.feedback = { title: "", message: "", type: "" };
+      state.feedback = { message: "", type: "" };
     },
   },
 });
