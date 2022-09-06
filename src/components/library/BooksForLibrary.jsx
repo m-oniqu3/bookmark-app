@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import useFilterLibrary from "../../hooks/useFilterLibrary";
 import useGetAllBooks from "../../hooks/useGetAllBooks";
-
 import search from "../../images/search.svg";
 import EmptyShelf from "../books/EmptyShelf";
 

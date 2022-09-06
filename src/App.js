@@ -11,7 +11,7 @@ function App() {
   const { library } = useSelector((state) => state.bookStore);
   const { shelf } = useSelector((state) => state.bookShelf);
 
-  //add library to firebase
+  //add data to firebase
   useEffect(() => {
     if (user && (library.length !== 0 || Object.keys(shelf).length !== 0))
       addDataToFirebase(user, library, shelf);

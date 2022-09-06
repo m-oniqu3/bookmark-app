@@ -26,6 +26,7 @@
     margin-bottom: 1rem;
     color: var(--dark-blue);
     max-width: 300px;
+    font-family: "Roboto", sans-serif;
 }
 
 .add-to-shelf span {

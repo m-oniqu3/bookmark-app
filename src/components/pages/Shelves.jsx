@@ -8,10 +8,7 @@ import BooksForShelves from "../shelves/BooksForShelves";
 const Shelves = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const shelves = {
-    position: "relative",
-    top: "10vh",
-  };
+  const shelves = { position: "relative", top: "10vh" };
 
   return (
     <div style={shelves}>
