@@ -31,7 +31,18 @@ const Footer = () => {
           )}
         </ul>
       </Container>
-      <p className={styled.copyright}>&copy; 2020 Bookmark</p>
+      <ul className={styled.copyright}>
+        <li>&copy; 2020 Bookmark </li>
+        <li>
+          <a
+            target="_blank"
+            href="https://github.com/m-oniqu3?tab=repositories"
+            rel="noreferrer"
+          >
+            Designed & Developed by Monique
+          </a>
+        </li>
+      </ul>
     </footer>
   );
 };

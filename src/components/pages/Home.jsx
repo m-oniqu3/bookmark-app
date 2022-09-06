@@ -6,11 +6,8 @@ import Footer from "../nav/Footer";
 
 const Home = () => {
   const { isSignedIn } = useSelector((state) => state.auth);
-  //top 10vh
-  const home = {
-    position: "relative",
-    top: "10vh",
-  };
+
+  const home = { position: "relative", top: "10vh" };
 
   return (
     <div style={home}>

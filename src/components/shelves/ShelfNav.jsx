@@ -50,10 +50,7 @@ const ShelfNav = ({ searchParams, setSearchParams }) => {
     }
   }, [shelfName, setSearchParams]);
 
-  /**get the shelves created by the current user
-   * apply correct className to the current shelf
-   */
-
+  // get the shelves created by the user and apply correct className to the current shelf
   const links = shelf?.shelves?.map((shelf) => (
     <p
       key={shelf}

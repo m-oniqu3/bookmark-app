@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import Books from "../components/books/Books";
 
+// custom hook to get all books in the user's library
 const useGetAllBooks = () => {
   // retrieve the library from the store
   const { library } = useSelector((state) => state.bookStore);

@@ -19,7 +19,6 @@
     text-align: center;
     min-width: 120px;
     width: fit-content;
-    cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
 

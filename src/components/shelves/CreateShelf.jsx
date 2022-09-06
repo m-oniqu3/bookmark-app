@@ -5,6 +5,7 @@ import { GiBookshelf } from "react-icons/gi";
 import styled from "./CreateShelf.module.css";
 import { MdCancel } from "react-icons/md";
 import { createShelf } from "../../store/features/shelf/shelfSlice";
+import { toast } from "react-toastify";
 
 const CreateShelf = (props) => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const CreateShelf = (props) => {
   const handleCreateShelf = (e) => {
     e.preventDefault();
     if (newShelf === "") {
-      alert("Please enter a shelf name");
+      toast.warning("Please enter a shelf name", { autoClose: 5000 });
       return;
     } else {
       dispatch(createShelf(newShelf));

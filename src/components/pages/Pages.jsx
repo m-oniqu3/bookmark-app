@@ -9,15 +9,13 @@ import Shelves from "./Shelves";
 import NoMatch from "../helpers/routes/NoMatch";
 import BookDetails from "../books/BookDetails";
 import ProtectedRoute from "../helpers/routes/ProtectedRoute";
-import Notification from "../helpers/notification/Notification";
-import { Store } from "react-notifications-component";
 import { useDispatch, useSelector } from "react-redux";
-
 import { updateLibrary } from "../../store/features/library/librarySlice";
 import { updateShelf } from "../../store/features/shelf/shelfSlice";
 import Loading from "../helpers/loading/Loading";
 import { booksCollection } from "../firebase/firebase-config";
 import { onSnapshot, query, where } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 const Pages = () => {
   const { feedback } = useSelector((state) => state.bookStore);
@@ -58,51 +56,23 @@ const Pages = () => {
   // show notifications when feedback is received
   useEffect(() => {
     if (feedback.message !== "") {
-      Store.addNotification({
-        content: (
-          <Notification
-            type={feedback.type}
-            message={feedback.message}
-            title={feedback.title}
-          />
-        ),
-
-        insert: "top",
-        container: "top-left",
-        animationIn: ["animate__animated", "animate__fadeIn"],
-        animationOut: ["animate__animated", "animate__fadeOut"],
-
-        dismiss: {
-          duration: 1200,
-          pauseOnHover: true,
-        },
-      });
+      const { message, type } = feedback;
+      if (type === "success") toast.success(message);
+      else if (type === "info") toast.info(message);
+      else if (type === "warning") toast.warning(message);
     }
   }, [feedback]);
 
   useEffect(() => {
     if (shelfFeedback.message !== "") {
-      Store.addNotification({
-        content: (
-          <Notification
-            type={shelfFeedback.type}
-            message={shelfFeedback.message}
-            title={shelfFeedback.title}
-          />
-        ),
-
-        insert: "top",
-        container: "top-left",
-        animationIn: ["animate__animated", "animate__fadeIn"],
-        animationOut: ["animate__animated", "animate__fadeOut"],
-
-        dismiss: {
-          duration: 1200,
-          pauseOnHover: true,
-        },
-      });
+      const { message, type } = shelfFeedback;
+      if (type === "success") toast.success(message);
+      else if (type === "info") toast.info(message);
+      else if (type === "warning") toast.warning(message);
+      else if (type === "error") toast.error(message);
     }
   }, [shelfFeedback]);
+
   return (
     <>
       <Navbar />

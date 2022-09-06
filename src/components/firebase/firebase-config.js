@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth, signOut } from "firebase/auth";
 import { collection, doc, getFirestore, setDoc } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 // firebase configuration
 const firebaseConfig = {
@@ -33,9 +34,9 @@ export const addDataToFirebase = async (id, library, shelf) => {
   );
 };
 
-// sign user out
+// sign user out and remove data from local storage
 export const signUserOut = async () => {
   await signOut(auth)
     .then(() => localStorage.removeItem("user"))
-    .catch((error) => alert(error));
+    .catch((error) => toast.error(error, { autoClose: 5000 }));
 };

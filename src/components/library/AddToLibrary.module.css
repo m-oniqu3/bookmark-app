@@ -18,10 +18,12 @@
 .library h2,
 .library span {
     font-size: 1.2rem;
+    font-weight: 700;
     color: var(--dark-blue);
     padding-bottom: 1rem;
     max-width: 250px;
     margin-inline: auto;
+    font-family: "Roboto", sans-serif;
 }
 
 .library span {
@@ -34,7 +36,6 @@
 
 .libraryCategory p {
     padding: 10px 25px;
-    /* font-weight: 600; */
     color: var(--dark-blue);
     border-radius: 50px;
     border: 1px solid var(--dark-blue);

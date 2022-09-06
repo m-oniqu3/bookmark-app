@@ -37,4 +37,30 @@
     color: var(--dark-blue);
     text-align: center;
     font-weight: 500;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+}
+
+.copyright a {
+    color: var(--dark-blue);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.copyright a:hover {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 400px) {
+    .copyright {
+        flex-direction: row;
+        gap: 1rem;
+    }
 }

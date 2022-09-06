@@ -4,8 +4,6 @@ import useGetAllShelfBooks from "../../hooks/useGetAllShelfBooks";
 import shelves from "../../images/shelves.svg";
 import EmptyShelf from "../books/EmptyShelf";
 
-//props for empty shelf
-
 const BooksForShelves = ({ searchParams }) => {
   const allBooksInLibrary = useGetAllShelfBooks();
   const urlParams = searchParams.get("shelf");
